@@ -27,22 +27,22 @@ const Price = () => {
   const option = [
     {
       position: "キーカラー変更",
-      name: "11,000円（税込）",
+      name: "11,33円（税込）",
       test: "サイト全体のキーカラーを変更致します。",
     },
     {
       position: "キーカラー変更",
-      name: "11,000円（税込）",
+      name: "11,005円（税込）",
       test: "サイト全体のキーカラーを変更致します。",
     },
     {
       position: "キーカラー変更",
-      name: "11,000円（税込）",
+      name: "11,066円（税込）",
       test: "サイト全体のキーカラーを変更致します。",
     },
     {
       position: "キーカラー変更",
-      name: "11,000円（税込）",
+      name: "11,0円（税込）",
       test: "サイト全体のキーカラーを変更致します。",
     },
   ];
@@ -106,7 +106,7 @@ const Price = () => {
                   <th>Shopify運用サポート</th>
                 </tr>
               </thead>
-              <tbody>{standards}</tbody>
+              <tbody >{standards}</tbody>
             </Table>
           </Card.Section>
           {/* </Group> */}

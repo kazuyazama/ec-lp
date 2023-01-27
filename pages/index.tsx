@@ -1,7 +1,11 @@
+import Comparison from "../components/Comparison";
+import Faq from "../components/Faq";
+import Form from "../components/Form";
 import { Feature, FeaturesGrid } from "../components/Layout/Feature";
 import { Hero } from "../components/Organisms/Hero";
 import { Osusume } from "../components/Osusume";
 import Price from "../components/Price";
+import Strong from "../components/Strong";
 
 export default function Home() {
 
@@ -56,9 +60,13 @@ export default function Home() {
     {/* 料金プラン */}
     <Price />
     {/* 他社比較 */}
+    <Comparison />
     {/* なぜ、shopifyが良いのか？または弊社の強み */}
+    <Strong />
     {/* よくある質問 */}
+    <Faq />
     {/* お問い合わせフォーム */}
+    <Form />
 
   </div>)
   ;
