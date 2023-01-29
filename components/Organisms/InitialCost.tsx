@@ -9,31 +9,16 @@ import {
   Container,
   Flex,
 } from "@mantine/core";
-import { IconGauge, IconUser, IconCookie } from "@tabler/icons-react";
+import { TablerIconsProps } from "@tabler/icons-react";
 
-const mockdata = [
-  {
-    title: "Extreme performance",
-    price: "100,000円",
-    description:
-      "This dust is actually a powerful poison that will even make a pro wrestler sick, Regice cloaks itself with frigid air of -328 degrees Fahrenheit",
-    icon: IconGauge,
-  },
-  {
-    title: "Privacy focused",
-    price: "100,000円",
-    description:
-      "People say it can run at the same speed as lightning striking, Its icy body is so cold, it will not melt even if it is immersed in magma",
-    icon: IconUser,
-  },
-  {
-    title: "No third parties",
-    price: "100,000円",
-    description:
-      "They’re popular, but they’re rare. Trainers who show them off recklessly may be targeted by thieves",
-    icon: IconCookie,
-  },
-];
+interface initialData {
+  initialCostData: {
+    title: string;
+    price: string;
+    description: string;
+    icon: (props: TablerIconsProps) => JSX.Element;
+  }[];
+}
 
 const useStyles = createStyles((theme) => ({
   title: {
@@ -78,9 +63,9 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export function Plan() {
+export function InitialCost({ initialCostData }: initialData) {
   const { classes, theme } = useStyles();
-  const features = mockdata.map((feature) => (
+  const features = initialCostData.map((feature) => (
     <Card
       key={feature.title}
       shadow="md"
@@ -101,17 +86,19 @@ export function Plan() {
     </Card>
   ));
   return (
-    <Container size="lg" py="xl">
+    <>
       <Group position="center">
         <Badge size="xl">initilalcost</Badge>
       </Group>
 
-      <Text color="dimmed" className={classes.description} align="center" mt="md">
-       次の３つからお選びいただけます。
+      <Text
+        color="dimmed"
+        className={classes.description}
+        align="center"
+        mt="md"
+      >
+        次の３つからお選びいただけます。
       </Text>
-
-
-
 
       <SimpleGrid
         cols={3}
@@ -121,6 +108,6 @@ export function Plan() {
       >
         {features}
       </SimpleGrid>
-    </Container>
+    </>
   );
 }

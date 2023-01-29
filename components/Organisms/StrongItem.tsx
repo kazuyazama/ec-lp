@@ -1,13 +1,26 @@
-import { createStyles, Title, SimpleGrid, Text, Button, ThemeIcon, Grid, Col } from '@mantine/core';
+import { createStyles, Title, SimpleGrid, Text, Button, ThemeIcon, Grid, Col, Container } from '@mantine/core';
 import { IconReceiptOff, IconFlame, IconCircleDotted, IconFileCode } from '@tabler/icons-react';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
-    padding: `${theme.spacing.xl * 2}px ${theme.spacing.xl}px`,
+    backgroundColor: '#c8e6dc',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    paddingTop: theme.spacing.xl * 3,
+    paddingBottom: theme.spacing.xl * 3,
+  },
+
+  inner: {
+    display: 'flex',
+    justifyContent: 'space-between',
+
+    [theme.fn.smallerThan('xs')]: {
+      flexDirection: 'column',
+    },
   },
 
   title: {
-    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+    fontFamily: `${theme.fontFamily}`,
     fontSize: 36,
     fontWeight: 900,
     lineHeight: 1.1,
@@ -50,9 +63,9 @@ export function StrongItem() {
         size={44}
         radius="md"
         variant="gradient"
-        gradient={{ deg: 133, from: 'blue', to: 'cyan' }}
+        gradient={{ deg: 133, from: 'primary', to: 'cyan' }}
       >
-        <feature.icon size={26} stroke={1.5} />
+        <feature.icon size={26} />
       </ThemeIcon>
       <Text size="lg" mt="sm" weight={500}>
         {feature.title}
@@ -65,17 +78,20 @@ export function StrongItem() {
 
   return (
     <div className={classes.wrapper}>
-      <Grid gutter={80}>
+      <Container size="lg">
+
+     
+      <Grid gutter={80} className={classes.inner}>
         <Col span={12} md={5}>
           <Title className={classes.title} order={2}>
-            A fully featured React components library for your next project
+            なぜShopifyが良いのか
           </Title>
           <Text color="dimmed">
             Build fully functional accessible web applications faster than ever – Mantine includes
             more than 120 customizable components and hooks to cover you in any situation
           </Text>
 
-          <Button
+          {/* <Button
             variant="gradient"
             gradient={{ deg: 133, from: 'blue', to: 'cyan' }}
             size="lg"
@@ -83,7 +99,7 @@ export function StrongItem() {
             mt="xl"
           >
             Get started
-          </Button>
+          </Button> */}
         </Col>
         <Col span={12} md={7}>
           <SimpleGrid cols={2} spacing={30} breakpoints={[{ maxWidth: 'md', cols: 1 }]}>
@@ -91,6 +107,7 @@ export function StrongItem() {
           </SimpleGrid>
         </Col>
       </Grid>
+      </Container>
     </div>
   );
 }

@@ -28,6 +28,7 @@ import {
   Container,
   Grid,
   Title,
+  createStyles,
 } from "@mantine/core";
 import {
   IconPencil,
@@ -37,16 +38,29 @@ import {
   IconTrash,
   IconDots,
 } from "@tabler/icons";
+import {IconCheck} from "@tabler/icons-react"
 
 interface UsersStackProps {
   data: { avatar: string; name: string; job: string; email: string }[];
 }
 
+const useStyles = createStyles((theme) => ({
+  wrapper: {
+    paddingTop: theme.spacing.xl ,
+    paddingBottom: theme.spacing.xl * 4,
+  },
+}));
+
 export function Osusume({ data }: UsersStackProps) {
+
+  const { classes, theme } = useStyles();
+
+
   const rows = data.map((item) => (
-    <Grid key={item.name} gutter="xl" align="center">
-      <Grid.Col lg={8} className="  ">
-        <Text size="md">{item.email}</Text>
+    <Grid key={item.name} gutter="xl" align="center"  >
+      <Grid.Col lg={8} className=" flex gap-3 ">
+        <IconCheck />
+        <Text className="lg:text-lg ">{item.email}</Text>
       </Grid.Col>
       <Grid.Col lg={4} className="   ">
         <Group spacing="md">
@@ -60,9 +74,9 @@ export function Osusume({ data }: UsersStackProps) {
   ));
 
   return (
-  <Container size="lg">
-    <Title mb={40}>こんな方におすすめ</Title>
-    {rows}
-</Container>
+    <Container size="lg"  className={ classes.wrapper} >
+      <Title mb={40}>こんな方におすすめです。</Title>
+      {rows}
+    </Container>
   );
 }

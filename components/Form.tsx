@@ -1,9 +1,18 @@
-import { Container } from "@mantine/core";
+import { Container, createStyles } from "@mantine/core";
 import { Input } from "./Organisms/Input";
 
+const useStyles = createStyles((theme) => ({
+    wrapper: {
+      paddingTop: theme.spacing.xl ,
+      paddingBottom: theme.spacing.xl * 4,
+    },
+  }));
+
 const Form = () => {
-    return (
-        <Container size="lg">
+
+    const { classes} = useStyles()
+     return (
+        <Container size="lg" className={classes.wrapper}>
             <Input />
         </Container>
     );

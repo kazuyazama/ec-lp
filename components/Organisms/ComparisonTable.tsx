@@ -14,7 +14,7 @@ const useStyles = createStyles((theme) => ({
 }));
 
 interface TableReviewsProps {
-  data: {
+  comparisonData: {
     title: string;
     author: string;
     year: string;
@@ -22,10 +22,10 @@ interface TableReviewsProps {
   }[];
 }
 
-export function ComparisonTable({ data }: TableReviewsProps) {
+export function ComparisonTable({ comparisonData }: TableReviewsProps) {
   const { classes, theme } = useStyles();
 
-  const rows = data.map((row) => {
+  const rows = comparisonData.map((row) => {
     return (
       <tr key={row.title} className=" flex ">
         <td className="basis-1/4 ">{row.title}</td>
@@ -37,7 +37,7 @@ export function ComparisonTable({ data }: TableReviewsProps) {
   });
 
   return (
-    <ScrollArea>
+    <ScrollArea >
       <Table
         striped
         withBorder
@@ -49,9 +49,9 @@ export function ComparisonTable({ data }: TableReviewsProps) {
         <thead>
           <tr className="flex">
             <th className=" basis-1/4  "></th>
-            <th className="basis-1/4  ">Year</th>
-            <th className="basis-1/4  ">Author</th>
-            <th className="basis-1/4 ">Reviews</th>
+            <th className="basis-1/4  ">弊社</th>
+            <th className="basis-1/4  ">B社</th>
+            <th className="basis-1/4 ">C社</th>
           </tr>
         </thead>
         <tbody>{rows}</tbody>

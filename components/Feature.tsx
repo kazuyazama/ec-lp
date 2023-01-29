@@ -73,7 +73,7 @@ import {
   
   const useStyles = createStyles((theme) => ({
     wrapper: {
-      paddingTop: theme.spacing.xl * 4,
+      paddingTop: theme.spacing.xl ,
       paddingBottom: theme.spacing.xl * 4,
     },
   

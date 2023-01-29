@@ -1,73 +1,38 @@
 import Comparison from "../components/Comparison";
 import Faq from "../components/Faq";
 import Form from "../components/Form";
-import { Feature, FeaturesGrid } from "../components/Layout/Feature";
-import { Hero } from "../components/Organisms/Hero";
+import { Feature, FeaturesGrid } from "../components/Feature";
+import { Hero } from "../components/Hero";
 import { Osusume } from "../components/Osusume";
-import Price from "../components/Price";
+import Price from "../components/Plans";
 import Strong from "../components/Strong";
+import { osusumeData } from "../assets/osusume";
+import { Container, createStyles, Group, SimpleGrid } from "@mantine/core";
+import Plans from "../components/Plans";
+
+
 
 export default function Home() {
+  const title = "Features";
+  const description = "ホームページストアの特徴";
 
-
-   const title = "Features"
-   const description = "ホームページストアの特徴"
-
-   const data = [
-    {
-      "avatar": "https://images.unsplash.com/photo-1624298357597-fd92dfbec01d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=250&q=80",
-      "name": "Robert Wolfkisser",
-      "job": "Engineer",
-      "email": "他社と差別化をしたサイトを作りたい",
-      
-    },
-    {
-      "avatar": "https://images.unsplash.com/photo-1586297135537-94bc9ba060aa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=250&q=80",
-      "name": "Jill Jailbreaker",
-      "job": "Engineer",
-      "email": "読み込みが早いECサイトを制作したい",
-      
-    },
-    {
-      "avatar": "https://images.unsplash.com/photo-1632922267756-9b71242b1592?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=250&q=80",
-      "name": "Henry Silkeater",
-      "job": "Designer",
-      "email": "ネットショップでの集客をアップしたい。",
-      
-    },
-    {
-      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=250&q=80",
-      "name": "Bill Horsefighter",
-      "job": "Designer",
-      "email": "自社のオリジナリティをサイトでしっかり表現したい",
-      
-    },
-    {
-      "avatar": "https://images.unsplash.com/photo-1630841539293-bd20634c5d72?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=250&q=80",
-      "name": "Jeremy Footviewer",
-      "job": "Manager",
-      "email": "商品を3Dで見せたい",
-      
-    }
-  ]
   return (
-  <div>
-    <Hero />
-    
-    <Osusume data={data} />
-    {/* 特徴 、サービス内容（ホームページストアのパクる） */}
-    <FeaturesGrid title={title} description={description} />
-    {/* 料金プラン */}
-    <Price />
-    {/* 他社比較 */}
-    <Comparison />
-    {/* なぜ、shopifyが良いのか？または弊社の強み */}
-    <Strong />
-    {/* よくある質問 */}
-    <Faq />
-    {/* お問い合わせフォーム */}
-    <Form />
+    <div className={`overflow-hidden `}>
+      <Hero />
 
-  </div>)
-  ;
+      <Osusume data={osusumeData} />
+      {/* 特徴 、サービス内容（ホームページストアのパクる） */}
+      <FeaturesGrid title={title} description={description} />
+      {/* 料金プラン */}
+      <Plans />
+      {/* 他社比較 */}
+      <Comparison />
+      {/* なぜ、shopifyが良いのか？または弊社の強み */}
+      <Strong />
+      {/* よくある質問 */}
+      <Faq />
+      {/* お問い合わせフォーム */}
+      <Form />
+    </div>
+  );
 }

@@ -1,53 +1,26 @@
-import { Container, Title } from "@mantine/core";
-import { ComparisonTable, } from "./Organisms/ComparisonTable";
+import { Container, createStyles, SimpleGrid, Title } from "@mantine/core";
+import { ComparisonTable } from "./Organisms/ComparisonTable";
+import { comparisonData } from "../assets/comparison";
+
+const useStyles = createStyles((theme) => ({
+  wrapper: {
+    paddingTop: theme.spacing.xl ,
+    paddingBottom: theme.spacing.xl * 4,
+  },
+}));
 
 const Comparison = () => {
 
+  const { classes, theme } = useStyles();
 
-       const data = [
-          {
-            "title": "Foundation",
-            "author": "○",
-            "year": "○",
-            "reviews": "○"
-          },
-          {
-            "title": "Frankenstein",
-            "author": "○",
-            "year": "○",
-            "reviews": "○"
-          },
-          {
-            "title": "Solaris",
-            "author": "○",
-            "year": "○",
-            "reviews": "○"
-          },
-          {
-            "title": "Dune",
-            "author": "○",
-            "year": "○",
-        "reviews": "○"
-          },
-          {
-            "title": "The Left Hand of Darkness",
-            "author": "○",
-            "year": "○",
-        "reviews": "○"
-          },
-          {
-            "title": "A Scanner Darkly",
-            "author": "○",
-            "year": "○",
-            "reviews": "×"
-          }
-        ]
-    return (
-        <Container size="lg">
-            <Title align="center">料金比較</Title>
-            <ComparisonTable data={data} />
-        </Container>
-    );
-}
+  return (
+    <Container size="lg" className={classes.wrapper}>
+      <SimpleGrid cols={1} spacing="xl" >
+      <Title align="center"  >料金比較</Title>
+      <ComparisonTable comparisonData={comparisonData} />
+      </SimpleGrid>
+    </Container>
+  );
+};
 
 export default Comparison;

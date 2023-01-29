@@ -112,7 +112,7 @@ export function Input() {
         autosize
         name="ご相談内容等"
         variant="filled"
-        {...form.getInputProps("subject")}
+        {...form.getInputProps("message")}
       />
 
       <Group position="center" mt="xl">
