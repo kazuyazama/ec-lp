@@ -16,7 +16,7 @@ interface runningData {
 const RunningCost = ({runningData}:runningData) => {
   return (
     <>
-      <Group position="center" py="xl">
+      <Group position="center" py="lg">
         <Badge size="xl">ranningcost</Badge>
       </Group>
 
@@ -24,15 +24,15 @@ const RunningCost = ({runningData}:runningData) => {
         {/* <Group  position="center"> */}
 
         <Card.Section>
-          <Title align="center" mt="md">
-            ¥22,000 / 月
+          <Title align="center" mt="xl" className=" font-Roboto after:content-['/月'] after:tracking-widest after:ml-2 after:text-[20px] ">
+            ¥22,000 
           </Title>
 
           <Text color="dimmed" align="center" mt="md">
             下記の項目はすべてランニングコストに含まれています。
           </Text>
 
-          <Table w="90%" mx="auto" withColumnBorders={true}>
+          <Table w="90%" mx="auto" withColumnBorders={true} my={20}>
             <thead>
               <tr>
                 <th className="text-center border-b-2">
@@ -43,6 +43,8 @@ const RunningCost = ({runningData}:runningData) => {
             </thead>
             <tbody>{runningData}</tbody>
           </Table>
+
+          <Title align="center" pb="lg" px="md" size="h3">+ 15,000円 /月で全てこちらが代行（丸投げ）も可能</Title>
         </Card.Section>
         {/* </Group> */}
       </Card>

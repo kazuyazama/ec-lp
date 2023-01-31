@@ -6,15 +6,39 @@ import {
   Title,
   Button,
   Radio,
+  Text,
+  createStyles,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useAtom } from "jotai";
 import { useRouter } from "next/router";
 import { inputState } from "../../stores/inputAtom";
 
+const useStyles = createStyles((theme) => ({
+
+  title: {
+    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+    fontWeight: 900,
+    marginBottom: theme.spacing.md,
+    textAlign: "center",
+
+    [theme.fn.smallerThan("sm")]: {
+      fontSize: 28,
+    },
+  },
+
+  description: {
+    textAlign: "center",
+
+    [theme.fn.smallerThan("sm")]: {},
+  },
+}))
+
 export function Input() {
   const [input, setInput] = useAtom(inputState);
   const router = useRouter();
+
+  const {classes}  = useStyles()
 
   const form = useForm({
     initialValues: {
@@ -49,12 +73,15 @@ export function Input() {
       <Title
         order={2}
         size="h1"
-        sx={(theme) => ({ fontFamily: `Greycliff CF, ${theme.fontFamily}` })}
         weight={900}
-        align="center"
+        className={classes.title}
       >
-        お問い合わせ
+        Contact
       </Title>
+
+      <Text size="sm" mb={50} className={classes.description}>
+        お問い合わせ
+      </Text>
 
       <SimpleGrid cols={1} mt="xl" breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
         <TextInput
@@ -115,7 +142,7 @@ export function Input() {
         {...form.getInputProps("message")}
       />
 
-      <Group position="center" mt="xl">
+      <Group position="center" mt={50}>
         <Button type="submit" size="md" radius="xl" px={50}>
           確認
         </Button>

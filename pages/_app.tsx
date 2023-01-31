@@ -1,9 +1,14 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import { MantineProvider } from "@mantine/core";
+import { Button, MantineProvider, UnstyledButton } from "@mantine/core";
 import Layout from "../components/Layout";
+import { useWindowScroll } from "@mantine/hooks";
+import { IconChevronUp } from "@tabler/icons-react";
+import { ThemeContext } from "@emotion/react";
+import TopScrollButton from "../components/Organisms/TopScrollButton";
 
 export default function App({ Component, pageProps }: AppProps) {
+  const [scroll, scrollTo] = useWindowScroll();
   return (
     <MantineProvider
       withGlobalStyles
@@ -12,6 +17,7 @@ export default function App({ Component, pageProps }: AppProps) {
         /** Put your mantine theme override here */
         colorScheme: "light",
         fontFamily: "Noto Sans JP,serif",
+        // headings:{fontFamily : 'Roboto'},
         colors: {
           primary: [
             "#e3f9f4",
@@ -52,6 +58,9 @@ export default function App({ Component, pageProps }: AppProps) {
       <Layout>
         <Component {...pageProps} />
       </Layout>
+      {scroll.y > 600 && (
+        <TopScrollButton scrollTo={scrollTo} />
+      )}
     </MantineProvider>
   );
 }

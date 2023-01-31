@@ -39,10 +39,7 @@ import {
   IconDots,
 } from "@tabler/icons";
 import {IconCheck} from "@tabler/icons-react"
-
-interface UsersStackProps {
-  data: { avatar: string; name: string; job: string; email: string }[];
-}
+import { osusumeData } from "../assets/osusume"
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -51,12 +48,12 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export function Osusume({ data }: UsersStackProps) {
+export function Osusume() {
 
   const { classes, theme } = useStyles();
 
 
-  const rows = data.map((item) => (
+  const rows = osusumeData.map((item) => (
     <Grid key={item.name} gutter="xl" align="center"  >
       <Grid.Col lg={8} className=" flex gap-3 ">
         <IconCheck />
@@ -75,7 +72,7 @@ export function Osusume({ data }: UsersStackProps) {
 
   return (
     <Container size="lg"  className={ classes.wrapper} >
-      <Title mb={40}>こんな方におすすめです。</Title>
+      <Title mb={50}>こんな方におすすめです。</Title>
       {rows}
     </Container>
   );

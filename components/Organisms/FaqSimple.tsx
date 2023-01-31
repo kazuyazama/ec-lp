@@ -1,8 +1,22 @@
-import { Container, Title, Accordion, createStyles } from "@mantine/core";
+import { Container, Title, Accordion, createStyles, Text } from "@mantine/core";
+import { IconLetterQ, } from "@tabler/icons-react";
 
 const useStyles = createStyles((theme) => ({
   title: {
-    marginBottom: theme.spacing.xl * 1.5,
+    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+    fontWeight: 900,
+    marginBottom: theme.spacing.md,
+    textAlign: "center",
+
+    [theme.fn.smallerThan("sm")]: {
+      fontSize: 28,
+    },
+  },
+
+  description: {
+    textAlign: "center",
+
+    [theme.fn.smallerThan("sm")]: {},
   },
 
   item: {
@@ -15,50 +29,35 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const placeholder =
-  "It can’t help but hear a pin drop from over half a mile away, so it lives deep in the mountains where there aren’t many people or Pokémon.It was born from sludge on the ocean floor. In a sterile environment, the germs within its body can’t multiply, and it dies.It has no eyeballs, so it can’t see. It checks its surroundings via the ultrasonic waves it emits from its mouth.";
+interface props {
+  faqData: {
+    value: string;
+    question: string;
+    answer: string;
+  }[]
+}
 
-export function FaqSimple() {
+export function FaqSimple({ faqData }: props) {
+
   const { classes } = useStyles();
   return (
     <div>
-      <Title align="center" className={classes.title}>
-        Frequently Asked Questions
-      </Title>
+      <Title className={classes.title}>FAQ</Title>
+      <Text size="sm" mb={50} className={classes.description}>
+        よくある質問
+      </Text>
 
       <Accordion variant="separated">
-        <Accordion.Item className={classes.item} value="reset-password">
-          <Accordion.Control>How can I reset my password?</Accordion.Control>
-          <Accordion.Panel>{placeholder}</Accordion.Panel>
-        </Accordion.Item>
-
-        <Accordion.Item className={classes.item} value="another-account">
-          <Accordion.Control>
-            Can I create more that one account?
-          </Accordion.Control>
-          <Accordion.Panel>{placeholder}</Accordion.Panel>
-        </Accordion.Item>
-
-        <Accordion.Item className={classes.item} value="newsletter">
-          <Accordion.Control>
-            How can I subscribe to monthly newsletter?
-          </Accordion.Control>
-          <Accordion.Panel>{placeholder}</Accordion.Panel>
-        </Accordion.Item>
-
-        <Accordion.Item className={classes.item} value="credit-card">
-          <Accordion.Control>
-            Do you store credit card information securely?
-          </Accordion.Control>
-          <Accordion.Panel>{placeholder}</Accordion.Panel>
-        </Accordion.Item>
-
-        <Accordion.Item className={classes.item} value="payment">
-          <Accordion.Control>
-            What payment systems to you work with?
-          </Accordion.Control>
-          <Accordion.Panel>{placeholder}</Accordion.Panel>
-        </Accordion.Item>
+        {faqData.map((faq) => (
+          <Accordion.Item
+            key={faq.value}
+            className={classes.item}
+            value={`${faq.value}`}
+          >
+            <Accordion.Control icon={<IconLetterQ />}>{faq.question}</Accordion.Control>
+            <Accordion.Panel>{faq.answer}</Accordion.Panel>
+          </Accordion.Item>
+        ))}
       </Accordion>
     </div>
   );

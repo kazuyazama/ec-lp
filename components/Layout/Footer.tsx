@@ -1,6 +1,7 @@
 import { createStyles, Text, Container, ActionIcon, Group } from '@mantine/core';
 import { IconBrandTwitter, IconBrandYoutube, IconBrandInstagram } from '@tabler/icons-react';
 import { MantineLogo } from '@mantine/ds';
+import Image from 'next/image';
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -14,13 +15,13 @@ const useStyles = createStyles((theme) => ({
   },
 
   logo: {
-    maxWidth: 200,
+    maxWidth: 400,
 
     [theme.fn.smallerThan('sm')]: {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-    },
+    }, 
   },
 
   description: {
@@ -133,27 +134,27 @@ export function Footer({ data }: FooterLinksProps) {
     <footer className={classes.footer}>
       <Container size="lg" className={classes.inner}>
         <div className={classes.logo}>
-          <MantineLogo size={30} />
-          <Text size="xs" color="dimmed" className={classes.description}>
-            Build fully functional accessible web applications faster than ever
+        <Image alt='logo' src="/logo (5).png" width={160} height={25}  />
+          <Text mt="md" size="xs" color="dimmed" className={classes.description}>
+          shopidy最新FW「hydrogen」を使用した高速でリッチなECサイト構築。
           </Text>
         </div>
         <div className={classes.groups}>{groups}</div>
       </Container>
       <Container className={classes.afterFooter}>
         <Text color="dimmed" size="sm">
-          © 2020 mantine.dev. All rights reserved.
+          © 2023 HydroStore All rights reserved.
         </Text>
 
         <Group spacing={0} className={classes.social} position="right" noWrap>
           <ActionIcon size="lg">
-            <IconBrandTwitter size={18} stroke={1.5} />
+            <IconBrandTwitter size={18}  />
           </ActionIcon>
           <ActionIcon size="lg">
-            <IconBrandYoutube size={18} stroke={1.5} />
+            <IconBrandYoutube size={18}  />
           </ActionIcon>
           <ActionIcon size="lg">
-            <IconBrandInstagram size={18} stroke={1.5} />
+            <IconBrandInstagram size={18}  />
           </ActionIcon>
         </Group>
       </Container>

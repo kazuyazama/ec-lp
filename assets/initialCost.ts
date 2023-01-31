@@ -2,24 +2,24 @@ import { IconGauge, IconUser, IconCookie } from "@tabler/icons-react";
 
 export const initialCostData = [
   {
-    title: "Extreme performance",
-    price: "100,000円",
+    title: "スターター",
+    price: "無料",
     description:
-      "This dust is actually a powerful poison that will even make a pro wrestler sick, Regice cloaks itself with frigid air of -328 degrees Fahrenheit",
+      "hydrogenテンプレートを使用したプランです。",
     icon: IconGauge,
   },
   {
-    title: "Privacy focused",
-    price: "100,000円",
+    title: "ベーシック",
+    price: "￥200,000",
     description:
-      "People say it can run at the same speed as lightning striking, Its icy body is so cold, it will not melt even if it is immersed in magma",
+      "hydrogenテンプレートをベースにカスタマイズ可能なプランです。",
     icon: IconUser,
   },
   {
-    title: "No third parties",
-    price: "100,000円",
+    title: "プレミアム",
+    price: "￥450,000",
     description:
-      "They’re popular, but they’re rare. Trainers who show them off recklessly may be targeted by thieves",
+      "テンプレートを使用せず一からwebデザインを構成していくプランです。",
     icon: IconCookie,
   },
 ];
@@ -27,23 +27,23 @@ export const initialCostData = [
 
 export const optionData = [
   {
-    position: "キーカラー変更",
-    name: "11,33円（税込）",
+    position: "3D表示",
+    name: "100,000円~（税抜）",
     test: "サイト全体のキーカラーを変更致します。",
   },
   {
-    position: "キーカラー変更",
-    name: "11,005円（税込）",
-    test: "サイト全体のキーカラーを変更致します。",
+    position: "写真撮影",
+    name: "要相談(商品数による)",
+    test: "プロのカメラマンを派遣し、高品質な写真を撮影します。",
   },
   {
-    position: "キーカラー変更",
-    name: "11,066円（税込）",
-    test: "サイト全体のキーカラーを変更致します。",
+    position: "ページ追加",
+    name: "30,000円~（税抜）",
+    test: "特集ページなどサイトにページを追加いたします。",
   },
   {
-    position: "キーカラー変更",
-    name: "11,0円（税込）",
-    test: "サイト全体のキーカラーを変更致します。",
+    position: "その他",
+    name: "要相談",
+    test: "その他ご希望があれば何なりとお申し付けください。できる限り対応いたします。",
   },
 ];

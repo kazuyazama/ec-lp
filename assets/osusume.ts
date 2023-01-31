@@ -3,7 +3,7 @@ export const osusumeData = [
       "avatar": "https://images.unsplash.com/photo-1624298357597-fd92dfbec01d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=250&q=80",
       "name": "Robert Wolfkisser",
       "job": "Engineer",
-      "email": "他社と差別化をしたサイトを作りたい",
+      "email": "オリジナティを出して他社と差別化をしたい",
       
     },
     {
@@ -24,7 +24,7 @@ export const osusumeData = [
       "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=250&q=80",
       "name": "Bill Horsefighter",
       "job": "Designer",
-      "email": "自社のオリジナリティをサイトでしっかり表現したい",
+      "email": "ネットショップを作りたいけど、社内にそれに割くリソースがない。",
       
     },
     {

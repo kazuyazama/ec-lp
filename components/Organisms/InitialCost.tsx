@@ -95,7 +95,6 @@ export function InitialCost({ initialCostData }: initialData) {
         color="dimmed"
         className={classes.description}
         align="center"
-        mt="md"
       >
         次の３つからお選びいただけます。
       </Text>

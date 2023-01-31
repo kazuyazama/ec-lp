@@ -10,15 +10,17 @@ import {
 } from "@mantine/core";
 
 const useStyles = createStyles((theme) => ({
-  text: {},
+  ourfirm: {
+    backgroundColor: theme.colors.primary[6],
+  },
 }));
 
 interface TableReviewsProps {
   comparisonData: {
     title: string;
-    author: string;
-    year: string;
-    reviews: string;
+    ourfirm: string;
+    otherB: string;
+    otherC: string;
   }[];
 }
 
@@ -27,17 +29,17 @@ export function ComparisonTable({ comparisonData }: TableReviewsProps) {
 
   const rows = comparisonData.map((row) => {
     return (
-      <tr key={row.title} className=" flex ">
+      <tr key={row.title} className=" flex  ">
         <td className="basis-1/4 ">{row.title}</td>
-        <td className="basis-1/4 ">{row.year}</td>
-        <td className="basis-1/4 ">{row.author}</td>
-        <td className=" basis-1/4 ">{row.reviews}</td>
+        <td className="basis-1/4 ">{row.ourfirm}</td>
+        <td className="basis-1/4 ">{row.otherB}</td>
+        <td className=" basis-1/4 ">{row.otherC}</td>
       </tr>
     );
   });
 
   return (
-    <ScrollArea >
+    <ScrollArea>
       <Table
         striped
         withBorder
@@ -48,8 +50,10 @@ export function ComparisonTable({ comparisonData }: TableReviewsProps) {
       >
         <thead>
           <tr className="flex">
-            <th className=" basis-1/4  "></th>
-            <th className="basis-1/4  ">弊社</th>
+            <th className=" basis-1/4 "></th>
+            <th className={`basis-1/4 ${classes.ourfirm}`}>
+              <span className=" text-white">弊社</span>
+            </th>
             <th className="basis-1/4  ">B社</th>
             <th className="basis-1/4 ">C社</th>
           </tr>

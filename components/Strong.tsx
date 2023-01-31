@@ -1,5 +1,6 @@
 import { Container, createStyles } from "@mantine/core";
 import { StrongItem } from "./Organisms/StrongItem";
+import { strongData } from "../assets/strong"
 
 const useStyles = createStyles((theme) => ({
     wrapper: {
@@ -13,7 +14,7 @@ const Strong = () => {
     const { classes} = useStyles()
     return (
         <div className={classes.wrapper}>
-            <StrongItem />
+            <StrongItem strongData={strongData} />
         </div>
     );
 }

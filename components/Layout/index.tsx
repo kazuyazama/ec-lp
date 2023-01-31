@@ -10,20 +10,24 @@ const Layout = ({children}:LayoutProps) => {
 
     const HeaderLinks = [
         {
-          link: "/about",
-          label: "Features",
+          link: "#features",
+          label: "Feature",
         },
         {
-          link: "/pricing",
-          label: "Pricing",
+          link: "#plans",
+          label: "Plans",
         },
         {
-          link: "/learn",
-          label: "Learn",
+          link: "#comparison",
+          label: "Comparison",
         },
         {
-          link: "/community",
-          label: "Community",
+          link: "#faq",
+          label: "Faq",
+        },
+        {
+          link: "#form",
+          label: "Form",
         },
       ];
 

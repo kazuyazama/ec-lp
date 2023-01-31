@@ -16,27 +16,45 @@ import {
   Title,
 } from "@mantine/core";
 import { InitialCost } from "./Organisms/InitialCost";
-import {  optionData } from "../assets/initialCost";
+import { optionData } from "../assets/initialCost";
 import { runningCostData } from "../assets/runningCost";
-import { initialCostData} from "../assets/initialCost"
+import { initialCostData } from "../assets/initialCost";
 import RunningCost from "./Organisms/RunningCost";
+
+
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
-    paddingTop: theme.spacing.xl ,
+    paddingTop: theme.spacing.xl,
     paddingBottom: theme.spacing.xl * 4,
+    scrollMarginTop:theme.spacing.xl
+  },
+
+  title: {
+    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+    fontWeight: 900,
+    marginBottom: theme.spacing.md,
+    textAlign: "center",
+
+    [theme.fn.smallerThan("sm")]: {
+      fontSize: 28,
+    },
+  },
+
+  description: {
+    textAlign: "center",
+
+    [theme.fn.smallerThan("sm")]: {},
   },
 }));
 
 
 const Plans = () => {
-
-
-  const { classes } = useStyles()
+  const { classes } = useStyles();
   const runningData = runningCostData.map((element) => (
-    <tr key={element.name}>
-      <td>{element.position}</td>
-      <td>{element.name}</td>
+    <tr key={element.package}>
+      <td>{element.package}</td>
+      <td>{element.support}</td>
     </tr>
   ));
   const options = optionData.map((element) => (
@@ -47,9 +65,12 @@ const Plans = () => {
     </tr>
   ));
   return (
-    <Container size="lg" className={classes.wrapper}>
+    <Container id="plans" size="lg" className={classes.wrapper}>
+        <Title className={classes.title}>Plans</Title>
+        <Text size="sm" mb={50} className={classes.description}>
+        料金プラン
+      </Text>
       <SimpleGrid cols={1} spacing="xl">
-        <Title align="center">料金プラン</Title>
 
         <InitialCost initialCostData={initialCostData} />
 
@@ -62,7 +83,7 @@ const Plans = () => {
             </Text>
             <Divider my="lg" w="100%" />
 
-            <Table>
+            <Table mb={20}>
               <tbody>{options}</tbody>
             </Table>
           </Card.Section>

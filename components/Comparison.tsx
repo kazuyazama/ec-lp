@@ -1,23 +1,52 @@
-import { Container, createStyles, SimpleGrid, Title } from "@mantine/core";
+import {
+  Container,
+  createStyles,
+  SimpleGrid,
+  Text,
+  Title,
+} from "@mantine/core";
 import { ComparisonTable } from "./Organisms/ComparisonTable";
 import { comparisonData } from "../assets/comparison";
+import { useAtom } from "jotai";
+import { scroll, targetState } from "../stores/scrollAtom";
+import Link from "next/link";
+import { useRef } from "react";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
-    paddingTop: theme.spacing.xl ,
+    paddingTop: theme.spacing.xl,
     paddingBottom: theme.spacing.xl * 4,
+    scrollMargin: theme.spacing.xl,
+  },
+  title: {
+    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+    fontWeight: 900,
+    marginBottom: theme.spacing.md,
+    textAlign: "center",
+
+    [theme.fn.smallerThan("sm")]: {
+      fontSize: 28,
+    },
+  },
+
+  description: {
+    textAlign: "center",
+
+    [theme.fn.smallerThan("sm")]: {},
   },
 }));
 
 const Comparison = () => {
-
-  const { classes, theme } = useStyles();
+  const { classes } = useStyles();
 
   return (
-    <Container size="lg" className={classes.wrapper}>
-      <SimpleGrid cols={1} spacing="xl" >
-      <Title align="center"  >料金比較</Title>
-      <ComparisonTable comparisonData={comparisonData} />
+    <Container id="comparison" size="lg" className={classes.wrapper}>
+      <Title className={classes.title}>Comparison</Title>
+      <Text size="sm" mb={50} className={classes.description}>
+        他社比較
+      </Text>
+      <SimpleGrid cols={1} spacing="xl">
+        <ComparisonTable comparisonData={comparisonData} />
       </SimpleGrid>
     </Container>
   );

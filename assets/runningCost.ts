@@ -1,7 +1,9 @@
 
 export const runningCostData = [
-    { position: "基本設定", name: "メール・チャットサポート" },
-    { position: "サイトデザイン", name: "ビデオ通話サポート" },
-    { position: "アクセス解析設定", name: "主要広告運用サポート" },
-    { position: "", name: "商品登録代行（月20点まで）" },
+    { package: "簡単更新", support: "メール・チャットサポート" },
+    { package: "サーバー・ドメイン代", support: "ビデオ通話サポート" },
+    { package: "アクセス解析設定", support: "主要広告運用サポート" },
+    { package: "高速表示", support: "商品登録代行（月50点まで）" },
+    { package: "SEO", support: "改善アドバイス" },
   ];
+
