@@ -6,8 +6,8 @@ export default function sendMail(req: NextApiRequest,res: NextApiResponse) {
         host:"smtp.gmail.com",
         port:587,
         auth:{
-            user: process.env.GMAILUSER,
-            pass: process.env.GMAILPASS,
+            user: process.env.NEXT_PUBLIC_GMAILUSER,
+            pass: process.env.NEXT_PUBLIC_GMAILPASS,
         }
     })
 
