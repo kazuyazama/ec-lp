@@ -1,4 +1,4 @@
-import { createStyles, Text, Container, ActionIcon, Group } from '@mantine/core';
+import { createStyles, Text, Container, ActionIcon, Group, Anchor } from '@mantine/core';
 import { IconBrandTwitter, IconBrandYoutube, IconBrandInstagram } from '@tabler/icons-react';
 import { MantineLogo } from '@mantine/ds';
 import Image from 'next/image';
@@ -111,15 +111,15 @@ export function Footer({ data }: FooterLinksProps) {
 
   const groups = data.map((group) => {
     const links = group.links.map((link, index) => (
-      <Text<'a'>
+      <Anchor<'a'>
         key={index}
         className={classes.link}
         component="a"
         href={link.link}
-        onClick={(event) => event.preventDefault()}
+        // onClick={(event) => event.preventDefault()}
       >
         {link.label}
-      </Text>
+      </Anchor>
     ));
 
     return (

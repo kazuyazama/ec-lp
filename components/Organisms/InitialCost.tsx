@@ -9,6 +9,7 @@ import {
   Container,
   Flex,
 } from "@mantine/core";
+import { animated, useInView, useSpring } from "@react-spring/web";
 import { TablerIconsProps } from "@tabler/icons-react";
 
 interface initialData {
@@ -65,7 +66,19 @@ const useStyles = createStyles((theme) => ({
 
 export function InitialCost({ initialCostData }: initialData) {
   const { classes, theme } = useStyles();
+
+  const [ref, isInView] = useInView({
+    rootMargin: "0% 0px",
+  });
+
+  const styles = useSpring({
+    opacity: isInView ? 1 : 0,
+    y: isInView ? 0 : 100,
+   
+  });
+
   const features = initialCostData.map((feature) => (
+    <animated.div ref={ref} style={styles}>
     <Card
       key={feature.title}
       shadow="md"
@@ -84,6 +97,8 @@ export function InitialCost({ initialCostData }: initialData) {
         {feature.description}
       </Text>
     </Card>
+    </animated.div>
+
   ));
   return (
     <>

@@ -79,7 +79,7 @@ const useStyles = createStyles((theme) => ({
       backgroundColor:
         theme.colorScheme === "dark"
           ? theme.colors.dark[6]
-          : theme.colors.gray[0],
+          : theme.colors.primary[0],
     },
 
     [theme.fn.smallerThan("sm")]: {
@@ -88,16 +88,18 @@ const useStyles = createStyles((theme) => ({
     },
   },
 
-  linkActive: {
-    "&, &:hover": {
-      backgroundColor: theme.fn.variant({
-        variant: "light",
-        color: theme.primaryColor,
-      }).background,
-      color: theme.fn.variant({ variant: "light", color: theme.primaryColor })
-        .color,
-    },
-  },
+  //後々使う
+
+  // linkActive: {
+  //   "&, &:hover": {
+  //     backgroundColor: theme.fn.variant({
+  //       variant: "light",
+  //       color: theme.primaryColor,
+  //     }).background,
+  //     color: theme.fn.variant({ variant: "light", color: theme.primaryColor })
+  //       .color,
+  //   },
+  // },
 }));
 
 interface HeaderResponsiveProps {
@@ -130,7 +132,7 @@ export function HeaderMenu({ links }: HeaderResponsiveProps) {
       target="_top"
       underline={false}
       className={cx(classes.link, {
-        [classes.linkActive]: active === link.link,
+    
       })}
     >
       {link.label}
@@ -166,7 +168,7 @@ export function HeaderMenu({ links }: HeaderResponsiveProps) {
         <Drawer
           opened={opened}
           onClose={() => setOpened(false)}
-          title="Register"
+          title="HydroStore"
           padding="xl"
           size="md"
           overlayOpacity={0.1}

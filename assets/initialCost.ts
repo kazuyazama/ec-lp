@@ -1,4 +1,4 @@
-import { IconGauge, IconUser, IconCookie } from "@tabler/icons-react";
+import { IconGauge, IconUser, IconCookie, IconRun, IconCar, IconPlane } from "@tabler/icons-react";
 
 export const initialCostData = [
   {
@@ -6,21 +6,21 @@ export const initialCostData = [
     price: "無料",
     description:
       "hydrogenテンプレートを使用したプランです。",
-    icon: IconGauge,
+    icon: IconRun,
   },
   {
     title: "ベーシック",
     price: "￥200,000",
     description:
       "hydrogenテンプレートをベースにカスタマイズ可能なプランです。",
-    icon: IconUser,
+    icon: IconCar,
   },
   {
     title: "プレミアム",
     price: "￥450,000",
     description:
       "テンプレートを使用せず一からwebデザインを構成していくプランです。",
-    icon: IconCookie,
+    icon: IconPlane,
   },
 ];
 

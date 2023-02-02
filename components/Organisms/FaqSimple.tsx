@@ -1,5 +1,6 @@
 import { Container, Title, Accordion, createStyles, Text } from "@mantine/core";
-import { IconLetterQ, } from "@tabler/icons-react";
+import { animated, useInView, useSpring } from "@react-spring/web";
+import { IconLetterQ } from "@tabler/icons-react";
 
 const useStyles = createStyles((theme) => ({
   title: {
@@ -34,31 +35,43 @@ interface props {
     value: string;
     question: string;
     answer: string;
-  }[]
+  }[];
 }
 
 export function FaqSimple({ faqData }: props) {
-
   const { classes } = useStyles();
+
+  const [ref, isInView] = useInView({
+    rootMargin: "0% 0px",
+  });
+
+  const styles = useSpring({
+    opacity: isInView ? 1 : 0,
+    y: isInView ? 0 : 100,
+  });
   return (
-    <div>
+    <>
       <Title className={classes.title}>FAQ</Title>
       <Text size="sm" mb={50} className={classes.description}>
         よくある質問
       </Text>
 
-      <Accordion variant="separated">
-        {faqData.map((faq) => (
-          <Accordion.Item
-            key={faq.value}
-            className={classes.item}
-            value={`${faq.value}`}
-          >
-            <Accordion.Control icon={<IconLetterQ />}>{faq.question}</Accordion.Control>
-            <Accordion.Panel>{faq.answer}</Accordion.Panel>
-          </Accordion.Item>
-        ))}
-      </Accordion>
-    </div>
+      <animated.div ref={ref} style={styles}>
+        <Accordion variant="separated">
+          {faqData.map((faq) => (
+            <Accordion.Item
+              key={faq.value}
+              className={classes.item}
+              value={`${faq.value}`}
+            >
+              <Accordion.Control icon={<IconLetterQ />}>
+                {faq.question}
+              </Accordion.Control>
+              <Accordion.Panel>{faq.answer}</Accordion.Panel>
+            </Accordion.Item>
+          ))}
+        </Accordion>
+      </animated.div>
+    </>
   );
 }

@@ -7,6 +7,7 @@ import {
   Text,
   Container,
 } from "@mantine/core";
+import { animated, useInView, useSpring } from "@react-spring/web";
 import { ReactNode } from "react";
 
 interface runningData {
@@ -14,8 +15,19 @@ interface runningData {
 }
 
 const RunningCost = ({runningData}:runningData) => {
+
+  const [ref, isInView] = useInView({
+    rootMargin: "0% 0px",
+  });
+
+  const styles = useSpring({
+    opacity: isInView ? 1 : 0,
+    y: isInView ? 0 : 100,
+   
+  });
+
   return (
-    <>
+     <animated.div ref={ref} style={styles}>
       <Group position="center" py="lg">
         <Badge size="xl">ranningcost</Badge>
       </Group>
@@ -48,7 +60,7 @@ const RunningCost = ({runningData}:runningData) => {
         </Card.Section>
         {/* </Group> */}
       </Card>
-      </>
+      </animated.div>
   );
 };
 

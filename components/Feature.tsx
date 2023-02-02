@@ -8,20 +8,40 @@ import {
   createStyles,
   Button,
   Center,
+  Transition,
 } from "@mantine/core";
 import { featureData } from "../assets/Feature";
 import { Icon } from "@tabler/icons-react";
+import { ReactNode } from "react";
+import { useInView, animated, useTrail, useSprings } from "@react-spring/web";
 
 interface FeatureProps {
   icon: Icon;
-  title: React.ReactNode;
-  description: React.ReactNode;
+  title: ReactNode;
+  description: ReactNode;
 }
 
 export function Feature({ icon: Icon, title, description }: FeatureProps) {
   const theme = useMantineTheme();
+
+  const [ref, springs] = useInView(
+    () => ({
+      from: {
+        opacity: 0,
+        y: 100,
+      },
+      to: {
+        opacity: 1,
+        y: 0,
+      },
+    }),
+    {
+      rootMargin: "-0% 0%",
+    }
+  );
+
   return (
-    <div>
+    <animated.div ref={ref} style={springs}>
       <ThemeIcon variant="light" size={40} radius={40}>
         <Icon size={20} />
       </ThemeIcon>
@@ -31,7 +51,7 @@ export function Feature({ icon: Icon, title, description }: FeatureProps) {
       <Text size="sm" color="dimmed" style={{ lineHeight: 1.6 }}>
         {description}
       </Text>
-    </div>
+    </animated.div>
   );
 }
 
@@ -39,7 +59,7 @@ const useStyles = createStyles((theme) => ({
   wrapper: {
     paddingTop: theme.spacing.xl,
     paddingBottom: theme.spacing.xl * 4,
-    scrollMarginTop:theme.spacing.xl
+    scrollMarginTop: theme.spacing.xl,
   },
 
   title: {
@@ -66,13 +86,15 @@ interface FeaturesGridProps {
 
 export function FeaturesGrid({ data = featureData }: FeaturesGridProps) {
   const { classes, theme } = useStyles();
+
   const features = data.map((feature, index) => (
     <Feature {...feature} key={index} />
   ));
 
   return (
     <Container id="features" size="lg" className={classes.wrapper}>
-      <Title className={classes.title}>Features</Title>
+      
+      <Title className={`${classes.title} `}>Features</Title>
 
       <Text size="sm" mb={50} className={classes.description}>
         HydroStoreの特徴

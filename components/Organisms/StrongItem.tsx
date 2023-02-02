@@ -9,6 +9,7 @@ import {
   Col,
   Container,
 } from "@mantine/core";
+import { animated, useInView, useSpring } from "@react-spring/web";
 import { TablerIconsProps } from "@tabler/icons-react";
 
 const useStyles = createStyles((theme) => ({
@@ -37,9 +38,9 @@ const useStyles = createStyles((theme) => ({
     marginBottom: theme.spacing.md,
     color: theme.colorScheme === "dark" ? theme.white : theme.black,
   },
-  description:{
-    marginBottom:theme.spacing.md
-  }
+  description: {
+    marginBottom: theme.spacing.md,
+  },
 }));
 
 interface props {
@@ -53,8 +54,17 @@ interface props {
 export function StrongItem({ strongData }: props) {
   const { classes } = useStyles();
 
+  const [ref, isInView] = useInView({
+    rootMargin: "0% 0px",
+  });
+
+  const styles = useSpring({
+    opacity: isInView ? 1 : 0,
+    y: isInView ? 0 : 100,
+  });
+
   const items = strongData.map((strong) => (
-    <div key={strong.title}>
+    <animated.div ref={ref} style={styles} key={strong.title}>
       <ThemeIcon
         size={44}
         radius="md"
@@ -69,7 +79,7 @@ export function StrongItem({ strongData }: props) {
       <Text color="dimmed" size="sm">
         {strong.description}
       </Text>
-    </div>
+    </animated.div>
   ));
 
   return (
@@ -77,17 +87,13 @@ export function StrongItem({ strongData }: props) {
       <Container size="lg">
         <Grid gutter={80} className={classes.inner}>
           <Col span={12} md={5}>
-            <Title className={classes.title}>
-              Why shopify?
-            </Title>
+            <Title className={classes.title}>Why shopify?</Title>
             <Text className={classes.description}>なぜShopifyが良いのか?</Text>
             <Text color="dimmed">
               Shopifyは世界シェアNo.1、175ヵ国の導入されているECサイト構築システムです。
               全世界で60万店舗が利用しており、世界ではバドワイザー、テスラモーターズ、ペプシ、カイリーコスメティクス等名だたるブランド・企業もShopifyを採用しております。
               この様に、世界シェアNo.1の豊富な情報量と経験値が積まれているため他社に比べて絶対的な信頼性があります。
             </Text>
-
-      
           </Col>
           <Col span={12} md={7}>
             <SimpleGrid

@@ -6,18 +6,27 @@ import { Hero } from "../components/Hero";
 import { Osusume } from "../components/Osusume";
 import Price from "../components/Plans";
 import Strong from "../components/Strong";
-import { Container, createStyles, Group, SimpleGrid } from "@mantine/core";
+import {
+  Container,
+  createStyles,
+  Group,
+  Paper,
+  SimpleGrid,
+  Transition,
+} from "@mantine/core";
 import Plans from "../components/Plans";
-import { useScrollIntoView } from "@mantine/hooks";
+import { useIntersection, useScrollIntoView } from "@mantine/hooks";
 import { HeaderMenu } from "../components/Layout/HeaderMenu";
 
 
-
 export default function Home() {
+  const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({
+    offset: 60,
+  });
 
-  const {scrollIntoView,targetRef } = useScrollIntoView<HTMLDivElement>({offset:60})
+  
 
-  const handleScroll =  () => scrollIntoView({alignment:"center"})
+  const handleScroll = () => scrollIntoView({ alignment: "center" });
 
 
   return (
@@ -25,6 +34,7 @@ export default function Home() {
       <Hero handleScroll={handleScroll} />
 
       <Osusume />
+
       {/* 特徴 、サービス内容（ホームページストアのパクる） */}
       <FeaturesGrid />
       {/* 料金プラン */}

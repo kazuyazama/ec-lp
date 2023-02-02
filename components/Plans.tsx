@@ -20,6 +20,7 @@ import { optionData } from "../assets/initialCost";
 import { runningCostData } from "../assets/runningCost";
 import { initialCostData } from "../assets/initialCost";
 import RunningCost from "./Organisms/RunningCost";
+import { animated, useInView, useSpring } from "@react-spring/web";
 
 
 
@@ -51,6 +52,19 @@ const useStyles = createStyles((theme) => ({
 
 const Plans = () => {
   const { classes } = useStyles();
+
+  const [ref, isInView] = useInView({
+    rootMargin: "0% 0px",
+  });
+
+  const styles = useSpring({
+    opacity: isInView ? 1 : 0,
+    y: isInView ? 0 : 100,
+   
+  });
+
+
+
   const runningData = runningCostData.map((element) => (
     <tr key={element.package}>
       <td>{element.package}</td>
@@ -72,8 +86,12 @@ const Plans = () => {
       </Text>
       <SimpleGrid cols={1} spacing="xl">
 
+     
         <InitialCost initialCostData={initialCostData} />
 
+
+        
+        <animated.div ref={ref} style={styles}>
         <Card w="100%" radius="md" withBorder>
           {/* <Group  position="center"> */}
 
@@ -89,6 +107,7 @@ const Plans = () => {
           </Card.Section>
           {/* </Group> */}
         </Card>
+        </animated.div>
 
         <RunningCost runningData={runningData} />
       </SimpleGrid>

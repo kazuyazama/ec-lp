@@ -16,6 +16,7 @@
     "@mantine/form": "^5.10.1",
     "@mantine/hooks": "^5.10.1",
     "@mantine/next": "^5.10.1",
+    "@react-spring/web": "^9.6.1",
     "@rive-app/react-canvas": "^3.0.35",
     "@tabler/icons-react": "^2.0.0",
     "@types/node": "18.11.18",

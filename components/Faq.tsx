@@ -1,6 +1,7 @@
 import { Container, createStyles } from "@mantine/core";
 import { FaqSimple } from "./Organisms/FaqSimple";
 import { faqData } from "../assets/faq"
+import { useInView, useSpring } from "@react-spring/web";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -12,7 +13,10 @@ const useStyles = createStyles((theme) => ({
 
 const Faq = () => {
   const { classes } = useStyles();
+
+  
   return (
+    
     <Container id="faq" size="lg" className={classes.wrapper}>
       <FaqSimple faqData={faqData} />
     </Container>

@@ -104,7 +104,7 @@ export function Hero({ handleScroll }: Props) {
             Rich EC <br />
           </Title>
           <Text color="primary" mt="md" className=" text-lg lg:text-xl ">
-            shopidy最新FW「hydrogen」を使用した高速でリッチなECサイトを業界最安値で制作します。
+            shopify最新FW「hydrogen」を使用した高速でリッチなECサイトを業界最安値で制作します。
           </Text>
 
           <List

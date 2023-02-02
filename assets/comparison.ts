@@ -1,3 +1,5 @@
+
+
 export const comparisonData = [
   {
     title: "ドメイン・サーバー費",

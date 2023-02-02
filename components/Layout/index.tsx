@@ -1,105 +1,84 @@
 import { ReactElement } from "react";
-import {Footer} from "./Footer";
+import { Footer } from "./Footer";
 import { HeaderMenu } from "./HeaderMenu";
 
 type LayoutProps = Required<{
-    readonly children: ReactElement;
-  }>;
+  readonly children: ReactElement;
+}>;
 
-const Layout = ({children}:LayoutProps) => {
+const Layout = ({ children }: LayoutProps) => {
+  const HeaderLinks = [
+    {
+      link: "#features",
+      label: "特徴",
+    },
+    {
+      link: "#plans",
+      label: "料金プラン",
+    },
+    {
+      link: "#comparison",
+      label: "他者との比較",
+    },
+    {
+      link: "#faq",
+      label: "よくある質問",
+    },
+    {
+      link: "#form",
+      label: "お問い合わせ",
+    },
+  ];
 
-    const HeaderLinks = [
+  const FooterLinks = [
+    {
+      title: "Topics",
+      links: [
         {
-          link: "#features",
-          label: "Feature",
+          label: "Target",
+          link: "#osusume",
         },
         {
-          link: "#plans",
-          label: "Plans",
+          label: "Why shopify?",
+          link: "#strong",
         },
         {
-          link: "#comparison",
-          label: "Comparison",
-        },
-        {
-          link: "#faq",
-          label: "Faq",
-        },
-        {
+          label: "Contact",
           link: "#form",
-          label: "Form",
         },
-      ];
-
-
-
-      const FooterLinks = [
+      ],
+    },
+    {
+      title: "About",
+      links: [
         {
-          "title": "About",
-          "links": [
-            {
-              "label": "Features",
-              "link": "#"
-            },
-            {
-              "label": "Pricing",
-              "link": "#"
-            },
-            {
-              "label": "Support",
-              "link": "#"
-            },
-            {
-              "label": "Forums",
-              "link": "#"
-            }
-          ]
+          label: "HydroStoreの特徴",
+          link: "#features",
         },
         {
-          "title": "Project",
-          "links": [
-            {
-              "label": "Contribute",
-              "link": "#"
-            },
-            {
-              "label": "Media assets",
-              "link": "#"
-            },
-            {
-              "label": "Changelog",
-              "link": "#"
-            },
-            {
-              "label": "Releases",
-              "link": "#"
-            }
-          ]
+          label: "料金プラン",
+          link: "#plans",
         },
         {
-          "title": "Community",
-          "links": [
-            {
-              "label": "Join Discord",
-              "link": "#"
-            },
-            {
-              "label": "Follow on Twitter",
-              "link": "#"
-            },
-            {
-              "label": "Email newsletter",
-              "link": "#"
-            },
-            {
-              "label": "GitHub discussions",
-              "link": "#"
-            }
-          ]
-        }
-      ]
-
-
+          label: "他社比較",
+          link: "#comparison",
+        },
+        {
+          label: "よくある質問",
+          link: "#faq",
+        },
+      ],
+    },
+    {
+      title: "Information",
+      links: [
+        {
+          label: "運営会社",
+          link: "https://www.restarts.co.jp/",
+        },
+      ],
+    },
+  ];
 
   return (
     <>
