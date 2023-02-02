@@ -7,10 +7,6 @@ import {
 } from "@mantine/core";
 import { ComparisonTable } from "./Organisms/ComparisonTable";
 import { comparisonData } from "../assets/comparison";
-import { useAtom } from "jotai";
-import { scroll, targetState } from "../stores/scrollAtom";
-import Link from "next/link";
-import { useRef } from "react";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {

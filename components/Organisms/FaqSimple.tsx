@@ -1,4 +1,4 @@
-import { Container, Title, Accordion, createStyles, Text } from "@mantine/core";
+import {  Title, Accordion, createStyles, Text } from "@mantine/core";
 import { animated, useInView, useSpring } from "@react-spring/web";
 import { IconLetterQ } from "@tabler/icons-react";
 

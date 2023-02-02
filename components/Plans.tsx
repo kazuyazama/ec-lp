@@ -1,34 +1,27 @@
 import {
-  Badge,
-  Box,
   Card,
-  Center,
   Container,
   createStyles,
   Divider,
-  Flex,
-  Grid,
-  Group,
+  ScrollArea,
   SimpleGrid,
-  Stack,
   Table,
   Text,
   Title,
 } from "@mantine/core";
 import { InitialCost } from "./Organisms/InitialCost";
 import { optionData } from "../assets/initialCost";
-import { runningCostData } from "../assets/runningCost";
+import { packages } from "../assets/runningCost";
+import { supports } from "../assets/runningCost";
 import { initialCostData } from "../assets/initialCost";
 import RunningCost from "./Organisms/RunningCost";
 import { animated, useInView, useSpring } from "@react-spring/web";
-
-
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
     paddingTop: theme.spacing.xl,
     paddingBottom: theme.spacing.xl * 4,
-    scrollMarginTop:theme.spacing.xl
+    scrollMarginTop: theme.spacing.xl,
   },
 
   title: {
@@ -44,13 +37,10 @@ const useStyles = createStyles((theme) => ({
 
   description: {
     textAlign: "center",
-
-    [theme.fn.smallerThan("sm")]: {},
   },
 }));
 
-
-const Plans = () => {
+export const Plans = () => {
   const { classes } = useStyles();
 
   const [ref, isInView] = useInView({
@@ -60,56 +50,48 @@ const Plans = () => {
   const styles = useSpring({
     opacity: isInView ? 1 : 0,
     y: isInView ? 0 : 100,
-   
   });
 
-
-
-  const runningData = runningCostData.map((element) => (
-    <tr key={element.package}>
-      <td>{element.package}</td>
-      <td>{element.support}</td>
-    </tr>
-  ));
+  // const runningData = testData.map((element) => (
+  //   <div key={element.package}>
+  //     <div>{element.package}</div>
+  //     <div>{element.support}</div>
+  //   </div>
+  // ));
   const options = optionData.map((element) => (
-    <tr key={element.name}>
-      <td>{element.position}</td>
-      <td>{element.name}</td>
-      <td>{element.test}</td>
+    <tr key={element.title}>
+      <td>{element.title}</td>
+      <td>{element.price}</td>
+      <td>{element.description}</td>
     </tr>
   ));
   return (
     <Container id="plans" size="lg" className={classes.wrapper}>
-        <Title className={classes.title}>Plans</Title>
-        <Text size="sm" mb={50} className={classes.description}>
+      <Title className={classes.title}>Plans</Title>
+      <Text size="sm" mb={50} className={classes.description}>
         料金プラン
       </Text>
       <SimpleGrid cols={1} spacing="xl">
-
-     
         <InitialCost initialCostData={initialCostData} />
 
-
-        
         <animated.div ref={ref} style={styles}>
-        <Card w="100%" radius="md" withBorder>
-          {/* <Group  position="center"> */}
+          <Card w="100%" radius="md" withBorder>
+            <Card.Section>
+              <Text align="center" size="xl" mt="md">
+                追加オプション
+              </Text>
+              <Divider my="lg" w="100%" />
 
-          <Card.Section>
-            <Text align="center" size="xl" mt="md">
-              追加オプション
-            </Text>
-            <Divider my="lg" w="100%" />
-
-            <Table mb={20}>
-              <tbody>{options}</tbody>
-            </Table>
-          </Card.Section>
-          {/* </Group> */}
-        </Card>
+              <ScrollArea>
+                <Table sx={{ minWidth: 800 }} mb={20}>
+                  <tbody>{options}</tbody>
+                </Table>
+              </ScrollArea>
+            </Card.Section>
+          </Card>
         </animated.div>
 
-        <RunningCost runningData={runningData} />
+        <RunningCost packages={packages} supports={supports} />
       </SimpleGrid>
     </Container>
   );

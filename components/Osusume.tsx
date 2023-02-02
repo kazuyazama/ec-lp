@@ -1,54 +1,14 @@
-// import { Grid, Skeleton, Container, Title, SimpleGrid } from "@mantine/core";
-
-// const child = <Skeleton height={140} radius="md" animate={false} />;
-
-// export function Osusume() {
-//   return (
-//     <Container  size="lg" my="md">
-//       <Title mb={20}>こんな方にオススメです</Title>
-//       <SimpleGrid cols={1} spacing={0} >
-//         <h3>他社と差別化をしたサイトを作りたい</h3>
-//         <h3>読み込みが早いECサイトを制作したい</h3>
-//         <h3>ネットショップでの集客をアップしたい。</h3>
-//         <h3>自社のオリジナリティをサイトでしっかり表現したい</h3>
-//         <h3>商品を3Dで見せたい</h3>
-//       </SimpleGrid>
-//     </Container>
-//   );
-// }
-
 import {
   Avatar,
-  Table,
   Group,
   Text,
-  ActionIcon,
-  Menu,
-  ScrollArea,
   Container,
   Grid,
   Title,
   createStyles,
   MediaQuery,
 } from "@mantine/core";
-import {
-  animated,
-  easings,
-  useChain,
-  useInView,
-  useSpring,
-  useSpringRef,
-  useSprings,
-  useTrail,
-} from "@react-spring/web";
-import {
-  IconPencil,
-  IconMessages,
-  IconNote,
-  IconReportAnalytics,
-  IconTrash,
-  IconDots,
-} from "@tabler/icons";
+import { animated, useInView, useSpring } from "@react-spring/web";
 import { IconCheck } from "@tabler/icons-react";
 import { osusumeData } from "../assets/osusume";
 
@@ -79,8 +39,8 @@ export function Osusume() {
   });
 
   const rows = osusumeData.map((item) => (
-    <animated.div ref={ref} style={styles}>
-      <Grid key={item.name} gutter="xl" align="center">
+    <animated.div key={item.name} ref={ref} style={styles}>
+      <Grid  gutter="xl" align="center">
         <Grid.Col lg={8} className=" flex gap-3 items-center">
           <IconCheck color={theme.colors.accent[6]} />
 

@@ -7,6 +7,7 @@ type LayoutProps = Required<{
 }>;
 
 const Layout = ({ children }: LayoutProps) => {
+  
   const HeaderLinks = [
     {
       link: "#features",

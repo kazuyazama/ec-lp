@@ -3,7 +3,6 @@ import {
   Title,
   SimpleGrid,
   Text,
-  Button,
   ThemeIcon,
   Grid,
   Col,

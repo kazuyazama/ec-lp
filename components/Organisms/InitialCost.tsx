@@ -2,11 +2,9 @@ import {
   createStyles,
   Badge,
   Group,
-  Title,
   Text,
   Card,
   SimpleGrid,
-  Container,
   Flex,
 } from "@mantine/core";
 import { animated, useInView, useSpring } from "@react-spring/web";
@@ -74,31 +72,23 @@ export function InitialCost({ initialCostData }: initialData) {
   const styles = useSpring({
     opacity: isInView ? 1 : 0,
     y: isInView ? 0 : 100,
-   
   });
 
   const features = initialCostData.map((feature) => (
-    <animated.div ref={ref} style={styles}>
-    <Card
-      key={feature.title}
-      shadow="md"
-      radius="md"
-      className={classes.card}
-      p="xl"
-    >
-      <Flex align="center" gap="md">
-        <feature.icon size={50} color={theme.fn.primaryColor()} />
-        <Text>{feature.title}</Text>
-      </Flex>
-      <Text size="lg" weight={500} className={classes.cardTitle} mt="md">
-        {feature.price}
-      </Text>
-      <Text size="sm" color="dimmed" mt="sm">
-        {feature.description}
-      </Text>
-    </Card>
+    <animated.div key={feature.title} ref={ref} style={styles}>
+      <Card shadow="md" radius="md" className={classes.card} p="xl">
+        <Flex align="center" gap="md">
+          <feature.icon size={50} color={theme.fn.primaryColor()} />
+          <Text>{feature.title}</Text>
+        </Flex>
+        <Text size="lg" weight={500} className={classes.cardTitle} mt="md">
+          {feature.price}
+        </Text>
+        <Text size="sm" color="dimmed" mt="sm">
+          {feature.description}
+        </Text>
+      </Card>
     </animated.div>
-
   ));
   return (
     <>
@@ -106,11 +96,7 @@ export function InitialCost({ initialCostData }: initialData) {
         <Badge size="xl">initilalcost</Badge>
       </Group>
 
-      <Text
-        color="dimmed"
-        className={classes.description}
-        align="center"
-      >
+      <Text color="dimmed" className={classes.description} align="center">
         次の３つからお選びいただけます。
       </Text>
 

@@ -7,9 +7,7 @@ import {
   Text,
   List,
   ThemeIcon,
-  MediaQuery,
 } from "@mantine/core";
-import { useScrollIntoView } from "@mantine/hooks";
 import { useRive } from "@rive-app/react-canvas";
 import { IconCheck, IconArrowNarrowRight } from "@tabler/icons-react";
 import Image from "next/image";
@@ -22,8 +20,8 @@ const useStyles = createStyles((theme) => ({
     paddingBottom: theme.spacing.xl * 4,
 
     [theme.fn.smallerThan("xs")]: {
-      paddingTop: theme.spacing.xl,
-      paddingBottom: theme.spacing.xl * 14,
+      paddingTop: 0,
+      paddingBottom: theme.spacing.xl * 12,
     },
   },
 

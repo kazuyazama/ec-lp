@@ -1,6 +1,5 @@
-import { createStyles, Text, Container, ActionIcon, Group, Anchor } from '@mantine/core';
+import { createStyles, Text, Container, ActionIcon, Group, Anchor, Space } from '@mantine/core';
 import { IconBrandTwitter, IconBrandYoutube, IconBrandInstagram } from '@tabler/icons-react';
-import { MantineLogo } from '@mantine/ds';
 import Image from 'next/image';
 
 const useStyles = createStyles((theme) => ({
@@ -135,18 +134,21 @@ export function Footer({ data }: FooterLinksProps) {
       <Container size="lg" className={classes.inner}>
         <div className={classes.logo}>
         <Image alt='logo' src="/logo (5).png" width={160} height={25}  />
+
           <Text mt="md" size="xs" color="dimmed" className={classes.description}>
           shopidy最新FW「hydrogen」を使用した高速でリッチなECサイト構築。
           </Text>
-        </div>
+
+          <Text mt="xs" size="xs" color="dimmed">※表示の金額は特に指定がない限りは税抜です。</Text>
+        </div> 
         <div className={classes.groups}>{groups}</div>
       </Container>
       <Container className={classes.afterFooter}>
         <Text color="dimmed" size="sm">
-          © 2023 HydroStore All rights reserved.
+          © 2023 HydroStore All rights reserved. 
         </Text>
 
-        <Group spacing={0} className={classes.social} position="right" noWrap>
+        {/* <Group spacing={0} className={classes.social} position="right" noWrap>
           <ActionIcon size="lg">
             <IconBrandTwitter size={18}  />
           </ActionIcon>
@@ -156,7 +158,7 @@ export function Footer({ data }: FooterLinksProps) {
           <ActionIcon size="lg">
             <IconBrandInstagram size={18}  />
           </ActionIcon>
-        </Group>
+        </Group> */}
       </Container>
     </footer>
   );

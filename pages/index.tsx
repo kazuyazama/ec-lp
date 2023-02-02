@@ -1,33 +1,20 @@
 import Comparison from "../components/Comparison";
 import Faq from "../components/Faq";
 import Form from "../components/Form";
-import { Feature, FeaturesGrid } from "../components/Feature";
+import { FeaturesGrid } from "../components/Feature";
 import { Hero } from "../components/Hero";
 import { Osusume } from "../components/Osusume";
-import Price from "../components/Plans";
 import Strong from "../components/Strong";
-import {
-  Container,
-  createStyles,
-  Group,
-  Paper,
-  SimpleGrid,
-  Transition,
-} from "@mantine/core";
-import Plans from "../components/Plans";
-import { useIntersection, useScrollIntoView } from "@mantine/hooks";
-import { HeaderMenu } from "../components/Layout/HeaderMenu";
 
+import Plans from "../components/Plans";
+import { useScrollIntoView } from "@mantine/hooks";
 
 export default function Home() {
   const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({
     offset: 60,
   });
 
-  
-
   const handleScroll = () => scrollIntoView({ alignment: "center" });
-
 
   return (
     <div className={`overflow-hidden `}>
@@ -35,7 +22,7 @@ export default function Home() {
 
       <Osusume />
 
-      {/* 特徴 、サービス内容（ホームページストアのパクる） */}
+      {/* 特徴 、サービス内容*/}
       <FeaturesGrid />
       {/* 料金プラン */}
       <Plans />

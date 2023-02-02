@@ -6,14 +6,11 @@ import {
   SimpleGrid,
   useMantineTheme,
   createStyles,
-  Button,
-  Center,
-  Transition,
 } from "@mantine/core";
 import { featureData } from "../assets/Feature";
 import { Icon } from "@tabler/icons-react";
 import { ReactNode } from "react";
-import { useInView, animated, useTrail, useSprings } from "@react-spring/web";
+import { useInView, animated } from "@react-spring/web";
 
 interface FeatureProps {
   icon: Icon;
@@ -93,7 +90,6 @@ export function FeaturesGrid({ data = featureData }: FeaturesGridProps) {
 
   return (
     <Container id="features" size="lg" className={classes.wrapper}>
-      
       <Title className={`${classes.title} `}>Features</Title>
 
       <Text size="sm" mb={50} className={classes.description}>
@@ -110,11 +106,11 @@ export function FeaturesGrid({ data = featureData }: FeaturesGridProps) {
       >
         {features}
       </SimpleGrid>
-      <Center>
+      {/* <Center>
         <Button radius="xl" px={30} mt={70} size="md">
           View More
         </Button>
-      </Center>
+      </Center> */}
     </Container>
   );
 }

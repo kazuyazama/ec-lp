@@ -5,19 +5,13 @@ import {
   Container,
   Group,
   Burger,
-  Paper,
-  Transition,
   Drawer,
-  Button,
   Anchor,
 } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
-import { MantineLogo } from "@mantine/ds";
-import Link from "next/link";
+
 import Image from "next/image";
-import { useAtom } from "jotai";
-import { targetState } from "../../stores/scrollAtom";
-import { Router, useRouter } from "next/router";
+
+import { useRouter } from "next/router";
 
 const HEADER_HEIGHT = 60;
 
@@ -131,9 +125,7 @@ export function HeaderMenu({ links }: HeaderResponsiveProps) {
       href={link.link}
       target="_top"
       underline={false}
-      className={cx(classes.link, {
-    
-      })}
+      className={cx(classes.link, {})}
     >
       {link.label}
     </Anchor>
@@ -156,8 +148,6 @@ export function HeaderMenu({ links }: HeaderResponsiveProps) {
           size="sm"
         />
 
-        
-
         {/* <Transition transition="pop-top-right" duration={200} mounted={opened}>
           {(styles) => (
             <Paper className={classes.dropdown} withBorder style={styles}>
@@ -170,7 +160,7 @@ export function HeaderMenu({ links }: HeaderResponsiveProps) {
           onClose={() => setOpened(false)}
           title="HydroStore"
           padding="xl"
-          size="md"
+          size="60%"
           overlayOpacity={0.1}
           withCloseButton={false}
         >

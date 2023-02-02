@@ -1,4 +1,4 @@
-import { Container, createStyles } from "@mantine/core";
+import { createStyles } from "@mantine/core";
 import { StrongItem } from "./Organisms/StrongItem";
 import { strongData } from "../assets/strong"
 
