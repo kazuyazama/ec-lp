@@ -5,6 +5,7 @@ import Layout from "../components/Layout";
 import { useWindowScroll } from "@mantine/hooks";
 
 import TopScrollButton from "../components/Organisms/TopScrollButton";
+import { Provider } from "jotai";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [scroll, scrollTo] = useWindowScroll();
@@ -54,9 +55,12 @@ export default function App({ Component, pageProps }: AppProps) {
         },
       }}
     >
+      <Provider>
+
       <Layout>
         <Component {...pageProps} />
       </Layout>
+      </Provider>
       {scroll.y > 600 && <TopScrollButton scrollTo={scrollTo} />}
     </MantineProvider>
   );

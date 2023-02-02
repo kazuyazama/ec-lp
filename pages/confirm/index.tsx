@@ -1,22 +1,15 @@
 import {
-  TextInput,
-  Textarea,
-  SimpleGrid,
   Group,
   Title,
   Button,
-  Radio,
   Container,
-  Center,
   Stack,
   List,
   createStyles,
   Text,
 } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
-
-import { useAtom } from "jotai";
-import Link from "next/link";
+import { useAtomValue } from "jotai";
 import { useRouter } from "next/router";
 import { FormEvent, useEffect } from "react";
 import { inputState } from "../../stores/inputAtom";
@@ -28,10 +21,10 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function confirm() {
-  const input = useAtom(inputState);
+function Confirm() {
+  const input = useAtomValue(inputState);
 
-  const { name, email, tel, radio, message } = input[0];
+  const { name, email, tel, radio, message } = input;
 
   const router = useRouter();
 
@@ -39,14 +32,14 @@ export default function confirm() {
 
   const largeScreen = useMediaQuery("(min-width:900px)");
 
-  // useEffect(() => {
-  //   const redirect = () => {
-  //     if (!name && !email && !tel) {
-  //       return router.push("/");
-  //     }
-  //   };
-  //   redirect();
-  // }, []);
+  useEffect(() => {
+    const redirect = () => {
+      if (!name && !email && !tel) {
+        return router.push("/");
+      }
+    };
+    redirect();
+  }, []);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -57,7 +50,7 @@ export default function confirm() {
           Accept: "application/json,text/plain",
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(input[0]),
+        body: JSON.stringify(input),
       });
       if (response.status === 200) {
         console.log("成功");
@@ -71,7 +64,7 @@ export default function confirm() {
   return (
     <Container size="lg" className={classes.wrapper}>
       <form onSubmit={(e: FormEvent<HTMLFormElement>) => handleSubmit(e)}>
-        <Stack >
+        <Stack>
           <Title size={largeScreen ? "h1" : "h3"} weight={900} align="center">
             入力内容をご確認ください。
           </Title>
@@ -130,3 +123,5 @@ export default function confirm() {
     </Container>
   );
 }
+
+export default Confirm;
