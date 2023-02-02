@@ -1,3 +1,5 @@
+
+
 import {
   Group,
   Title,
@@ -39,6 +41,7 @@ function Confirm() {
       }
     };
     redirect();
+   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
