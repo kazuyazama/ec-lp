@@ -133,7 +133,7 @@ export function Footer({ data }: FooterLinksProps) {
     <footer className={classes.footer}>
       <Container size="lg" className={classes.inner}>
         <div className={classes.logo}>
-        <Image alt='logo' src="/logo (5).png" width={160} height={25}  />
+        <Image alt="logo" src="/Hydrostore_logo1.svg" width={160} height={35} />
 
           <Text mt="md" size="xs" color="dimmed" className={classes.description}>
           shopidy最新FW「hydrogen」を使用した高速でリッチなECサイト構築。

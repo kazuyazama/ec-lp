@@ -136,7 +136,7 @@ export function HeaderMenu({ links }: HeaderResponsiveProps) {
   return (
     <Header height={HEADER_HEIGHT} mb={50} className={classes.root}>
       <Container size="lg" className={classes.header}>
-        <Image alt="logo" src="/logo (5).png" width={160} height={25} />
+        <Image alt="logo" src="/Hydrostore_logo1.svg" width={160} height={35} />
         <Group spacing={5} className={classes.links}>
           {items}
         </Group>

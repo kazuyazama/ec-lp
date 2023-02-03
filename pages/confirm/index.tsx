@@ -62,6 +62,22 @@ function Confirm() {
     } catch (error) {
       console.error("エラーが発生しました: ", error);
     }
+
+    // fetch('/api/contact', {
+    //   method: 'POST',
+    //   body: JSON.stringify(input),
+    // })
+    //   .then((res) => {
+    //     console.log('Response received');
+    //     if (res.status === 200) {
+    //       console.log('Response succeeded!');
+    //     } else {
+    //       console.log(`Error: Status Code ${res.status}`);
+    //     }
+    //   })
+    //   .catch((e) => {
+    //     console.log(`Error: ${e}`);
+    //   });
   };
 
   return (
