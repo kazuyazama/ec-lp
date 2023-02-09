@@ -28,6 +28,9 @@ const useStyles = createStyles((theme) => ({
       theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[3]
     }`,
   },
+  icon:{
+    color:theme.colors.primary[5]
+  }
 }));
 
 interface props {
@@ -64,7 +67,7 @@ export function FaqSimple({ faqData }: props) {
               className={classes.item}
               value={`${faq.value}`}
             >
-              <Accordion.Control icon={<IconLetterQ />}>
+              <Accordion.Control icon={<IconLetterQ className={classes.icon} />}>
                 {faq.question}
               </Accordion.Control>
               <Accordion.Panel>{faq.answer}</Accordion.Panel>

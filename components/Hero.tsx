@@ -148,17 +148,17 @@ export function Hero({ handleScroll }: Props) {
               </Button> */}
           </Group>
         </div>
-        <Image
+        {/* <Image
           src="/undraw_shopping_app_flsj.svg"
           width={500}
           height={500}
           alt=""
           className={`${classes.image} `}
-        />
+        /> */}
         {/* エラー出てだるいから、最後に反映させる */}
-        {/* <div className={`${classes.image} absolute left-1/2 top-20 -z-10 w-[700px] h-[550px]   `}>
+        <div className={`${classes.image} absolute left-1/2 top-20 -z-10 w-[700px] h-[550px]   `}>
             <RiveComponent />
-          </div> */}
+          </div>
       </div>
     </Container>
   );

@@ -19,7 +19,7 @@ export default class _Document extends Document {
               })(window,document,'script','dataLayer','GTM-P4GMW5T') `,
             }}
           />
-          ;
+          
           <link
             href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap"
             rel="stylesheet"
