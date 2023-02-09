@@ -12,6 +12,7 @@ import {
 } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { useAtomValue } from "jotai";
+import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
 import { FormEvent, useEffect } from "react";
 import { inputState } from "../../stores/inputAtom";
@@ -66,6 +67,8 @@ function Confirm() {
   };
 
   return (
+    <>
+    <NextSeo title="入力内容の確認"  />
     <Container size="lg" className={classes.wrapper}>
       <form onSubmit={(e: FormEvent<HTMLFormElement>) => handleSubmit(e)}>
         <Stack>
@@ -125,6 +128,7 @@ function Confirm() {
         </Group>
       </form>
     </Container>
+    </>
   );
 }
 

@@ -42,10 +42,10 @@ export function Feature({ icon: Icon, title, description }: FeatureProps) {
       <ThemeIcon variant="light" size={40} radius={40}>
         <Icon size={20} />
       </ThemeIcon>
-      <Text style={{ marginTop: theme.spacing.sm, marginBottom: 7 }}>
+      <Text style={{ marginTop: theme.spacing.sm, marginBottom: 7 }} className="  tracking-wider">
         {title}
       </Text>
-      <Text size="sm" color="dimmed" style={{ lineHeight: 1.6 }}>
+      <Text size="sm" color="dimmed" style={{ lineHeight: 1.6 ,letterSpacing:0.5 }}>
         {description}
       </Text>
     </animated.div>

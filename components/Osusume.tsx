@@ -40,17 +40,17 @@ export function Osusume() {
 
   const rows = osusumeData.map((item) => (
     <animated.div key={item.name} ref={ref} style={styles}>
-      <Grid  gutter="xl" align="center">
+      <Grid  gutter={50} align="center">
         <Grid.Col lg={8} className=" flex gap-3 items-center">
           <IconCheck color={theme.colors.accent[6]} />
 
-          <Text size="xl">{item.email}</Text>
+          <Text size="xl" className=" tracking-wider">{item.message}</Text>
         </Grid.Col>
         <MediaQuery query="(max-width: 1200px)" styles={{ display: "none" }}>
           <Grid.Col lg={4} className="   ">
             <Group spacing="md">
-              <Avatar size={30} src={item.avatar} radius={40} />
-              <Text size="md" weight={500}>
+              <Avatar size={40} src={item.avatar} radius={40} />
+              <Text size="md" weight={500} className="tracking-wider">
                 {item.name}
               </Text>
             </Group>

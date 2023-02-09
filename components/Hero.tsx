@@ -101,14 +101,14 @@ export function Hero({ handleScroll }: Props) {
             High Performance <span className={`${classes.highlight} `}>&</span>{" "}
             Rich EC <br />
           </Title>
-          <Text color="primary" mt="md" className=" text-lg lg:text-xl ">
+          <Text color="primary" mt="md" className=" text-lg lg:text-xl tracking-wider ">
             shopify最新FW「hydrogen」を使用した高速でリッチなECサイトを業界最安値で制作します。
           </Text>
 
           <List
             mt={30}
             spacing="sm"
-            className="text-xl"
+            className="text-xl tracking-wider"
             icon={
               <ThemeIcon size={20} radius="xl">
                 <IconCheck size={12} />

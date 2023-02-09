@@ -5,7 +5,7 @@ export const initialCostData = [
     title: "スターター",
     price: "無料",
     description:
-      "hydrogenテンプレートを使用したプランです。",
+      "hydrogenテンプレートを使用した初期費用無料のプランです。",
     icon: IconRun,
   },
   {
@@ -29,7 +29,7 @@ export const optionData = [
   {
     title: "3D表示",
     price: "100,000円~（税抜）",
-    description: "サイト全体のキーカラーを変更致します。",
+    description: "商品を3D化し、360°ユーザが商品を操作できるようにします",
   },
   {
     title: "写真撮影",
@@ -39,7 +39,7 @@ export const optionData = [
   {
     title: "ページ追加",
     price: "30,000円~（税抜）",
-    description: "特集ページなどサイトにページを追加いたします。",
+    description: "特集ページ等サイトにページを追加いたします。",
   },
   {
     title: "その他",

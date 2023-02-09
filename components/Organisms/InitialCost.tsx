@@ -60,6 +60,9 @@ const useStyles = createStyles((theme) => ({
       marginTop: theme.spacing.sm,
     },
   },
+  cardDescription:{
+    letterSpacing:0.2,
+  },
 }));
 
 export function InitialCost({ initialCostData }: initialData) {
@@ -84,7 +87,7 @@ export function InitialCost({ initialCostData }: initialData) {
         <Text size="lg" weight={500} className={classes.cardTitle} mt="md">
           {feature.price}
         </Text>
-        <Text size="sm" color="dimmed" mt="sm">
+        <Text size="sm" color="dimmed" mt="sm" className={classes.cardDescription} >
           {feature.description}
         </Text>
       </Card>
