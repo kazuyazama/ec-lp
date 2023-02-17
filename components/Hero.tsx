@@ -30,7 +30,7 @@ const useStyles = createStyles((theme) => ({
   content: {
     maxWidth: 530,
     marginRight: theme.spacing.xl * 3,
-
+    zIndex:50,
     [theme.fn.smallerThan("md")]: {
       maxWidth: "100%",
       marginRight: 0,
@@ -98,7 +98,7 @@ export function Hero({ handleScroll, contactRef }: Props) {
   const { classes } = useStyles();
 
   return (
-    <Container size="lg" className={`${classes.inner} overflow-y-auto`}>
+    <Container size="lg" className={`${classes.inner} `}>
         <div className={classes.content}>
           <Title className={`${classes.title} lg:whitespace-nowrap  `}>
             High Performance <span className={`${classes.highlight} `}>&</span>{" "}
@@ -153,7 +153,6 @@ export function Hero({ handleScroll, contactRef }: Props) {
                 Source code
               </Button> */}
           </Group>
-        </div>
         <Image
           src="/undraw_shopping_app_flsj.svg"
           width={200}
@@ -161,12 +160,13 @@ export function Hero({ handleScroll, contactRef }: Props) {
           alt="topImage"
           className={`${classes.image} lg:hidden  `}
         />
+        </div>
         {/* エラー出てだるいから、最後に反映させる */}
-        {/* <div
+        <div
           className={`${classes.image} hidden lg:inline-flex  absolute left-1/2 top-20 -z-10  w-[700px] h-[550px] `}
         >
           <RiveComponent />
-        </div> */}
+        </div>
     </Container>
   );
 }
