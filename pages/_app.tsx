@@ -47,50 +47,29 @@ export default function App({ Component, pageProps }: AppProps) {
   ];
 
   const FooterLinks = [
+   
     {
-      title: "Topics",
-      links: [
-        {
-          label: "Target",
-          link: "#osusume",
-        },
-        {
-          label: "Why shopify?",
-          link: "#strong",
-        },
-        {
-          label: "Contact",
-          link: "#form",
-        },
-      ],
-    },
-    {
-      title: "About",
+      title: "Section",
       links: [
         {
           label: "HydroStoreの特徴",
-          link: "#features",
+          link: featuresRef,
         },
         {
           label: "料金プラン",
-          link: "#plans",
+          link: plansRef,
         },
         {
           label: "他社比較",
-          link: "#comparison",
+          link: comparisonRef,
         },
         {
           label: "よくある質問",
-          link: "#faq",
+          link: faqRef,
         },
-      ],
-    },
-    {
-      title: "Information",
-      links: [
         {
-          label: "運営会社",
-          link: "https://www.restarts.co.jp/",
+          label: "お問い合わせ",
+          link:  contactRef,
         },
       ],
     },
@@ -154,7 +133,7 @@ export default function App({ Component, pageProps }: AppProps) {
           featuresRef={featuresRef}
           {...pageProps}
         />
-        <Footer data={FooterLinks} />
+        <Footer handleScroll={handleScroll} data={FooterLinks} />
         {scroll.y > 600 && <TopScrollButton scrollTo={scrollTo} />}
       </MantineProvider>
     </>
