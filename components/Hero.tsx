@@ -12,6 +12,7 @@ import {
 import { useRive } from "@rive-app/react-canvas";
 import { IconCheck, IconArrowNarrowRight } from "@tabler/icons-react";
 import Image from "next/image";
+import { RefObject } from "react";
 
 const useStyles = createStyles((theme) => ({
   inner: {
@@ -82,8 +83,12 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
+type Props = {
+  handleScroll: (link: RefObject<HTMLDivElement>) => void;
+  contactRef: RefObject<HTMLDivElement>;
+};
 
-export function Hero() {
+export function Hero({ handleScroll, contactRef }: Props) {
   const { rive, RiveComponent } = useRive({
     src: "/new_file_5.riv",
     autoplay: true,
@@ -99,7 +104,11 @@ export function Hero() {
             High Performance <span className={`${classes.highlight} `}>&</span>{" "}
             Rich EC <br />
           </Title>
-          <Text color="primary" mt="md" className=" text-lg lg:text-xl tracking-wider ">
+          <Text
+            color="primary"
+            mt="md"
+            className=" text-lg lg:text-xl tracking-wider "
+          >
             shopify最新FW「hydrogen」を使用した高速でリッチなECサイトを業界最安値で制作します。
           </Text>
 
@@ -126,16 +135,15 @@ export function Hero() {
           </List>
 
           <Group mt={50}>
-            <Anchor href="#form">
-              <Button
-                radius="xl"
-                size="xl"
-                rightIcon={<IconArrowNarrowRight />}
-                className={`${classes.control} `}
-              >
-                無料で相談してみる
-              </Button>
-            </Anchor>
+            <Button
+              radius="xl"
+              size="xl"
+              rightIcon={<IconArrowNarrowRight />}
+              className={`${classes.control} `}
+              onClick={() => handleScroll(contactRef)}
+            >
+              無料で相談してみる
+            </Button>
             {/* <Button
                 variant="default"
                 radius="xl"
@@ -154,9 +162,11 @@ export function Hero() {
           className={`${classes.image} lg:hidden translate-x-8 `}
         />
         {/* エラー出てだるいから、最後に反映させる */}
-        <div className={`${classes.image} hidden lg:inline-flex  absolute left-1/2 top-20 -z-10  w-[700px] h-[550px] `}>
-            <RiveComponent />
-          </div> 
+        <div
+          className={`${classes.image} hidden lg:inline-flex  absolute left-1/2 top-20 -z-10  w-[700px] h-[550px] `}
+        >
+          <RiveComponent />
+        </div>
       </div>
     </Container>
   );

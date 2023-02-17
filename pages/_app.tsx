@@ -5,7 +5,6 @@ import Layout from "../components/Layout";
 import { useWindowScroll } from "@mantine/hooks";
 
 import TopScrollButton from "../components/Organisms/TopScrollButton";
-import { Provider } from "jotai";
 import { DefaultSeo } from "next-seo";
 import  SEO from "../next-seo.config";
 
@@ -59,11 +58,9 @@ export default function App({ Component, pageProps }: AppProps) {
           },
         }}
       >
-        <Provider>
           <Layout>
             <Component {...pageProps} />
           </Layout>
-        </Provider>
         {scroll.y > 600 && <TopScrollButton scrollTo={scrollTo} />}
       </MantineProvider>
     </>

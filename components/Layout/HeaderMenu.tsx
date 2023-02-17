@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { RefObject, useState } from "react";
 import {
   createStyles,
   Header,
@@ -7,6 +7,7 @@ import {
   Burger,
   Drawer,
   Anchor,
+  Button,
 } from "@mantine/core";
 
 import Image from "next/image";
@@ -97,10 +98,11 @@ const useStyles = createStyles((theme) => ({
 }));
 
 interface HeaderResponsiveProps {
-  links: { link: string; label: string }[];
+  links: { link: RefObject<HTMLDivElement>; label: string }[];
+  handleScroll:(link: RefObject<HTMLDivElement>) => void
 }
 
-export function HeaderMenu({ links }: HeaderResponsiveProps) {
+export function HeaderMenu({ links ,handleScroll}: HeaderResponsiveProps) {
   const [opened, setOpened] = useState(false);
   const [active, setActive] = useState(links[0].link);
   const { classes } = useStyles();
@@ -120,14 +122,15 @@ export function HeaderMenu({ links }: HeaderResponsiveProps) {
     // >
     //   {link.label}
     // </Link>
-    <Anchor
+    <a
+      onClick={() => handleScroll(link.link)}
       key={link.label}
-      href={link.link}
-      underline={false}
+      // href={link.link}
+      // underline={false}
       className={classes.link}
     >
       {link.label}
-    </Anchor>
+    </a>
   ));
 
   const router = useRouter();

@@ -11,13 +11,13 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const Faq = () => {
+const Faq = ({faqRef}) => {
   const { classes } = useStyles();
 
   
   return (
     
-    <Container id="faq" size="lg" className={classes.wrapper}>
+    <Container ref={faqRef} size="lg" className={classes.wrapper}>
       <FaqSimple faqData={faqData} />
     </Container>
   );

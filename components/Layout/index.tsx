@@ -1,32 +1,38 @@
-import { ReactElement } from "react";
+import { createRef, RefObject } from "react";
+import Home from "../../pages";
 import { Footer } from "./Footer";
 import { HeaderMenu } from "./HeaderMenu";
 
-type LayoutProps = Required<{
-  readonly children: ReactElement;
-}>;
+const Layout = () => {
+  const plansRef = createRef<HTMLDivElement>();
+  const contactRef = createRef<HTMLDivElement>();
+  const comparisonRef = createRef<HTMLDivElement>();
+  const faqRef = createRef<HTMLDivElement>();
+  const featuresRef = createRef<HTMLDivElement>();
 
-const Layout = ({ children }: LayoutProps) => {
-  
+  const handleScroll = (link: RefObject<HTMLDivElement>) => {
+    link.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   const HeaderLinks = [
     {
-      link: "#features",
+      link: featuresRef,
       label: "特徴",
     },
     {
-      link: "#plans",
+      link: plansRef,
       label: "料金プラン",
     },
     {
-      link: "#comparison",
+      link: comparisonRef,
       label: "他者との比較",
     },
     {
-      link: "#faq",
+      link: faqRef,
       label: "よくある質問",
     },
     {
-      link: "#form",
+      link: contactRef,
       label: "お問い合わせ",
     },
   ];
@@ -83,8 +89,15 @@ const Layout = ({ children }: LayoutProps) => {
 
   return (
     <>
-      <HeaderMenu links={HeaderLinks} />
-      <main>{children}</main>
+      <HeaderMenu handleScroll={handleScroll} links={HeaderLinks} />
+      <Home
+        handleScroll={handleScroll}
+        contactRef={contactRef}
+        plansRef={plansRef}
+        comparisonRef={comparisonRef}
+        faqRef={faqRef}
+        featuresRef={featuresRef}
+      />
       <Footer data={FooterLinks} />
     </>
   );

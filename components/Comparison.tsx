@@ -32,11 +32,11 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const Comparison = () => {
+const Comparison = ({comparisonRef}) => {
   const { classes } = useStyles();
 
   return (
-    <Container id="comparison" size="lg" className={classes.wrapper}>
+    <Container ref={comparisonRef} size="lg" className={classes.wrapper}>
       <Title className={classes.title}>Comparison</Title>
       <Text size="sm" mb={50} className={classes.description}>
         他社比較

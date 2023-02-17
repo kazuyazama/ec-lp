@@ -14,11 +14,11 @@ type Props = {
   targetRef:MutableRefObject<HTMLDivElement>
 }
 
-const Form = () => {
+const Form = ({contactRef}) => {
 
     const { classes} = useStyles()
      return (
-        <Container id="form"  size="lg" className={classes.wrapper}>
+        <Container ref={contactRef} id="form"  size="lg" className={classes.wrapper}>
             <Input />
         </Container>
     );

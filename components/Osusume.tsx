@@ -40,7 +40,7 @@ export function Osusume() {
 
   const rows = osusumeData.map((item) => (
     <animated.div key={item.name} ref={ref} style={styles}>
-      <Grid  gutter={50} align="center">
+      <Grid gutter={50} align="center">
         <Grid.Col lg={8} className=" flex gap-3 items-center">
           <IconCheck color={theme.colors.accent[6]} />
 

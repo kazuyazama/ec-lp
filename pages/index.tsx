@@ -7,28 +7,43 @@ import { Osusume } from "../components/Osusume";
 import Strong from "../components/Strong";
 
 import Plans from "../components/Plans";
+import { RefObject } from "react";
 
-export default function Home() {
- 
+type Props = {
+  handleScroll: (link: RefObject<HTMLDivElement>) => void;
+  contactRef: RefObject<HTMLDivElement>;
+  comparisonRef: RefObject<HTMLDivElement>;
+  plansRef: RefObject<HTMLDivElement>;
+  faqRef: RefObject<HTMLDivElement>;
+  featuresRef: RefObject<HTMLDivElement>;
+};
 
+export default function Home({
+  handleScroll,
+  contactRef,
+  comparisonRef,
+  plansRef,
+  faqRef,
+  featuresRef,
+}: Props) {
   return (
-    <div className={`overflow-x-hidden `}>
-      <Hero />
+    <main className={`overflow-x-hidden `}>
+      <Hero contactRef={contactRef} handleScroll={handleScroll} />
 
       <Osusume />
 
       {/* 特徴 、サービス内容*/}
-      <FeaturesGrid />
+      <FeaturesGrid featuresRef={featuresRef} />
       {/* 料金プラン */}
-      <Plans />
+      <Plans plansRef={plansRef} />
       {/* 他社比較 */}
-      <Comparison />
+      <Comparison comparisonRef={comparisonRef} />
       {/* なぜ、shopifyが良いのか？または弊社の強み */}
       <Strong />
       {/* よくある質問 */}
-      <Faq />
+      <Faq faqRef={faqRef} />
       {/* お問い合わせフォーム */}
-      <Form  />
-    </div>
+      <Form contactRef={contactRef} />
+    </main>
   );
 }
