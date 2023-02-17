@@ -1,15 +1,101 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { MantineProvider } from "@mantine/core";
-import Layout from "../components/Layout";
 import { useWindowScroll } from "@mantine/hooks";
 
 import TopScrollButton from "../components/Organisms/TopScrollButton";
 import { DefaultSeo } from "next-seo";
-import  SEO from "../next-seo.config";
+import SEO from "../next-seo.config";
+import { HeaderMenu } from "../components/Layout/HeaderMenu";
+import { Footer } from "../components/Layout/Footer";
+import { createRef, RefObject } from "react";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [scroll, scrollTo] = useWindowScroll();
+
+  const plansRef = createRef<HTMLDivElement>();
+  const contactRef = createRef<HTMLDivElement>();
+  const comparisonRef = createRef<HTMLDivElement>();
+  const faqRef = createRef<HTMLDivElement>();
+  const featuresRef = createRef<HTMLDivElement>();
+
+  const handleScroll = (link: RefObject<HTMLDivElement>) => {
+    link.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const HeaderLinks = [
+    {
+      link: featuresRef,
+      label: "特徴",
+    },
+    {
+      link: plansRef,
+      label: "料金プラン",
+    },
+    {
+      link: comparisonRef,
+      label: "他者との比較",
+    },
+    {
+      link: faqRef,
+      label: "よくある質問",
+    },
+    {
+      link: contactRef,
+      label: "お問い合わせ",
+    },
+  ];
+
+  const FooterLinks = [
+    {
+      title: "Topics",
+      links: [
+        {
+          label: "Target",
+          link: "#osusume",
+        },
+        {
+          label: "Why shopify?",
+          link: "#strong",
+        },
+        {
+          label: "Contact",
+          link: "#form",
+        },
+      ],
+    },
+    {
+      title: "About",
+      links: [
+        {
+          label: "HydroStoreの特徴",
+          link: "#features",
+        },
+        {
+          label: "料金プラン",
+          link: "#plans",
+        },
+        {
+          label: "他社比較",
+          link: "#comparison",
+        },
+        {
+          label: "よくある質問",
+          link: "#faq",
+        },
+      ],
+    },
+    {
+      title: "Information",
+      links: [
+        {
+          label: "運営会社",
+          link: "https://www.restarts.co.jp/",
+        },
+      ],
+    },
+  ];
+
   return (
     <>
       <DefaultSeo {...SEO} />
@@ -58,9 +144,17 @@ export default function App({ Component, pageProps }: AppProps) {
           },
         }}
       >
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
+        <HeaderMenu handleScroll={handleScroll} links={HeaderLinks} />
+        <Component
+          handleScroll={handleScroll}
+          contactRef={contactRef}
+          plansRef={plansRef}
+          comparisonRef={comparisonRef}
+          faqRef={faqRef}
+          featuresRef={featuresRef}
+          {...pageProps}
+        />
+        <Footer data={FooterLinks} />
         {scroll.y > 600 && <TopScrollButton scrollTo={scrollTo} />}
       </MantineProvider>
     </>

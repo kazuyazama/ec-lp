@@ -7,6 +7,7 @@ import {
 } from "@mantine/core";
 import { ComparisonTable } from "./Organisms/ComparisonTable";
 import { comparisonData } from "../assets/comparison";
+import { RefObject } from "react";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -32,7 +33,11 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const Comparison = ({comparisonRef}) => {
+type Props = {
+  comparisonRef:RefObject<HTMLDivElement>
+}
+
+const Comparison = ({comparisonRef}:Props) => {
   const { classes } = useStyles();
 
   return (

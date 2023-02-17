@@ -1,5 +1,5 @@
 import { Container, createStyles } from "@mantine/core";
-import { MutableRefObject } from "react";
+import { MutableRefObject, RefObject } from "react";
 import { Input } from "./Organisms/Input";
 
 const useStyles = createStyles((theme) => ({
@@ -10,11 +10,11 @@ const useStyles = createStyles((theme) => ({
     },
   }));
 
-type Props = {
-  targetRef:MutableRefObject<HTMLDivElement>
-}
+  type Props = {
+    contactRef:RefObject<HTMLDivElement>
+  }
 
-const Form = ({contactRef}) => {
+const Form = ({contactRef}:Props) => {
 
     const { classes} = useStyles()
      return (

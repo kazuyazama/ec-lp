@@ -16,6 +16,7 @@ import { supports } from "../assets/runningCost";
 import { initialCostData } from "../assets/initialCost";
 import RunningCost from "./Organisms/RunningCost";
 import { animated, useInView, useSpring } from "@react-spring/web";
+import { RefObject } from "react";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -40,7 +41,11 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export const Plans = ({plansRef}) => {
+type Props = {
+  plansRef:RefObject<HTMLDivElement>
+}
+
+export const Plans = ({plansRef}:Props) => {
   const { classes } = useStyles();
 
   const [ref, isInView] = useInView({

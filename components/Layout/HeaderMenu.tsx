@@ -7,12 +7,11 @@ import {
   Burger,
   Drawer,
   Anchor,
-  Button,
+
 } from "@mantine/core";
 
 import Image from "next/image";
 
-import { useRouter } from "next/router";
 
 const HEADER_HEIGHT = 60;
 
@@ -99,10 +98,10 @@ const useStyles = createStyles((theme) => ({
 
 interface HeaderResponsiveProps {
   links: { link: RefObject<HTMLDivElement>; label: string }[];
-  handleScroll:(link: RefObject<HTMLDivElement>) => void
+  handleScroll: (link: RefObject<HTMLDivElement>) => void;
 }
 
-export function HeaderMenu({ links ,handleScroll}: HeaderResponsiveProps) {
+export function HeaderMenu({ links, handleScroll }: HeaderResponsiveProps) {
   const [opened, setOpened] = useState(false);
   const [active, setActive] = useState(links[0].link);
   const { classes } = useStyles();
@@ -122,18 +121,17 @@ export function HeaderMenu({ links ,handleScroll}: HeaderResponsiveProps) {
     // >
     //   {link.label}
     // </Link>
-    <a
+    <Anchor
       onClick={() => handleScroll(link.link)}
       key={link.label}
+      underline={false}
       // href={link.link}
       // underline={false}
       className={classes.link}
     >
       {link.label}
-    </a>
+    </Anchor>
   ));
-
-  const router = useRouter();
 
   return (
     <Header height={HEADER_HEIGHT} mb={50} className={classes.root}>

@@ -2,6 +2,7 @@ import { Container, createStyles } from "@mantine/core";
 import { FaqSimple } from "./Organisms/FaqSimple";
 import { faqData } from "../assets/faq"
 import { useInView, useSpring } from "@react-spring/web";
+import { RefObject } from "react";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -11,7 +12,11 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const Faq = ({faqRef}) => {
+type Props = {
+  faqRef:RefObject<HTMLDivElement>
+}
+
+const Faq = ({faqRef}:Props) => {
   const { classes } = useStyles();
 
   
