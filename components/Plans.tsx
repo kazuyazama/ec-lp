@@ -71,7 +71,7 @@ export const Plans = ({plansRef}:Props) => {
     </tr>
   ));
   return (
-    <Container ref={plansRef} id="plans" size="lg" className={classes.wrapper}>
+    <Container ref={plansRef}  size="lg" className={classes.wrapper}>
       <Title className={classes.title}>Plans</Title>
       <Text size="sm" mb={50} className={classes.description}>
         料金プラン

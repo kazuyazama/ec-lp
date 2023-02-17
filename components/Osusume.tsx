@@ -61,7 +61,7 @@ export function Osusume() {
   ));
 
   return (
-    <Container id="osusume" size="lg" className={classes.wrapper}>
+    <Container size="lg" className={classes.wrapper}>
       <Title mb={50}>こんな方におすすめです。</Title>
       {rows}
     </Container>

@@ -2,13 +2,10 @@ import {
   createStyles,
   Text,
   Container,
-  ActionIcon,
-  Group,
+
   Anchor,
-  Space,
 } from "@mantine/core";
 import Image from "next/image";
-import Link from "next/link";
 import { RefObject } from "react";
 
 const useStyles = createStyles((theme) => ({

@@ -7,7 +7,6 @@ import {
   Text,
   List,
   ThemeIcon,
-  Anchor,
 } from "@mantine/core";
 import { useRive } from "@rive-app/react-canvas";
 import { IconCheck, IconArrowNarrowRight } from "@tabler/icons-react";
@@ -80,6 +79,7 @@ const useStyles = createStyles((theme) => ({
     }).background,
     borderRadius: theme.radius.sm,
     padding: "4px 12px",
+    zIndex:-100
   },
 }));
 
@@ -97,7 +97,7 @@ export function Hero({ handleScroll, contactRef }: Props) {
   const { classes } = useStyles();
 
   return (
-    <Container size="lg" className="overflow-visible">
+    <Container size="lg" className=" ">
       <div className={classes.inner}>
         <div className={classes.content}>
           <Title className={`${classes.title} lg:whitespace-nowrap  `}>
@@ -156,10 +156,10 @@ export function Hero({ handleScroll, contactRef }: Props) {
         </div>
         <Image
           src="/undraw_shopping_app_flsj.svg"
-          width={500}
+          width={200}
           height={500}
           alt="topImage"
-          className={`${classes.image} lg:hidden translate-x-8 `}
+          className={`${classes.image} lg:hidden translate-x-5 overflow-hidden `}
         />
         {/* エラー出てだるいから、最後に反映させる */}
         <div

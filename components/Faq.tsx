@@ -1,14 +1,14 @@
 import { Container, createStyles } from "@mantine/core";
 import { FaqSimple } from "./Organisms/FaqSimple";
 import { faqData } from "../assets/faq"
-import { useInView, useSpring } from "@react-spring/web";
 import { RefObject } from "react";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
     paddingTop: theme.spacing.xl,
     paddingBottom: theme.spacing.xl * 4,
-    scrollMarginTop:theme.spacing.xl
+    scrollMarginTop:theme.spacing.xl,
+    overflowX:"hidden"
   },
 }));
 
