@@ -103,7 +103,7 @@ interface HeaderResponsiveProps {
 export function HeaderMenu({ links }: HeaderResponsiveProps) {
   const [opened, setOpened] = useState(false);
   const [active, setActive] = useState(links[0].link);
-  const { classes, cx } = useStyles();
+  const { classes } = useStyles();
 
   const items = links.map((link) => (
     //↓後々使用する
@@ -123,9 +123,8 @@ export function HeaderMenu({ links }: HeaderResponsiveProps) {
     <Anchor
       key={link.label}
       href={link.link}
-      target="_top"
       underline={false}
-      className={cx(classes.link, {})}
+      className={classes.link}
     >
       {link.label}
     </Anchor>
@@ -159,7 +158,7 @@ export function HeaderMenu({ links }: HeaderResponsiveProps) {
           opened={opened}
           onClose={() => setOpened(false)}
           title="HydroStore"
-          padding="xl"
+          padding="lg"
           size="60%"
           overlayOpacity={0.1}
           withCloseButton={false}

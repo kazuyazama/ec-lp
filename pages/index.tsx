@@ -7,18 +7,13 @@ import { Osusume } from "../components/Osusume";
 import Strong from "../components/Strong";
 
 import Plans from "../components/Plans";
-import { useScrollIntoView } from "@mantine/hooks";
 
 export default function Home() {
-  const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({
-    offset: 60,
-  });
-
-  const handleScroll = () => scrollIntoView({ alignment: "center" });
+ 
 
   return (
-    <div className={`overflow-hidden `}>
-      <Hero handleScroll={handleScroll} />
+    <div className={`overflow-x-hidden `}>
+      <Hero />
 
       <Osusume />
 
@@ -33,7 +28,7 @@ export default function Home() {
       {/* よくある質問 */}
       <Faq />
       {/* お問い合わせフォーム */}
-      <Form targetRef={targetRef} />
+      <Form  />
     </div>
   );
 }

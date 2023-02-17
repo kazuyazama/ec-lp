@@ -8,7 +8,7 @@ export default class _Document extends Document {
 
   render() {
     return (
-      <Html>
+      <Html className="  scroll-smooth">
         <Head>
           <script
             dangerouslySetInnerHTML={{

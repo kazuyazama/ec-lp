@@ -7,6 +7,7 @@ import {
   Text,
   List,
   ThemeIcon,
+  Anchor,
 } from "@mantine/core";
 import { useRive } from "@rive-app/react-canvas";
 import { IconCheck, IconArrowNarrowRight } from "@tabler/icons-react";
@@ -81,11 +82,8 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-type Props = {
-  handleScroll: () => void;
-};
 
-export function Hero({ handleScroll }: Props) {
+export function Hero() {
   const { rive, RiveComponent } = useRive({
     src: "/new_file_5.riv",
     autoplay: true,
@@ -128,7 +126,7 @@ export function Hero({ handleScroll }: Props) {
           </List>
 
           <Group mt={50}>
-            <a href="#form">
+            <Anchor href="#form">
               <Button
                 radius="xl"
                 size="xl"
@@ -137,7 +135,7 @@ export function Hero({ handleScroll }: Props) {
               >
                 無料で相談してみる
               </Button>
-            </a>
+            </Anchor>
             {/* <Button
                 variant="default"
                 radius="xl"
