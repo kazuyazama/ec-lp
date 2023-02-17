@@ -132,6 +132,7 @@ export default function App({ Component, pageProps }: AppProps) {
           faqRef={faqRef}
           featuresRef={featuresRef}
           {...pageProps}
+          
         />
         <Footer handleScroll={handleScroll} data={FooterLinks} />
         {scroll.y > 600 && <TopScrollButton scrollTo={scrollTo} />}

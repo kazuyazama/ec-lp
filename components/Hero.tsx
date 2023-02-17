@@ -23,6 +23,7 @@ const useStyles = createStyles((theme) => ({
     [theme.fn.smallerThan("xs")]: {
       paddingTop: 0,
       paddingBottom: theme.spacing.xl * 12,
+      
     },
   },
 
@@ -63,11 +64,11 @@ const useStyles = createStyles((theme) => ({
     // absolute left-1/2 top-24 -z-10
     [theme.fn.smallerThan("xs")]: {
       top: 430,
-      left: -30,
-      paddingRight: theme.spacing.xs,
-      paddingLeft: theme.spacing.xs,
+      left: 20,
+      // paddingRight: theme.spacing.xs,
+      // paddingLeft: theme.spacing.xs,
       // height:500,
-      width: "100vw",
+      width: "90%",
     },
   },
 
@@ -79,7 +80,7 @@ const useStyles = createStyles((theme) => ({
     }).background,
     borderRadius: theme.radius.sm,
     padding: "4px 12px",
-    zIndex:-100
+    zIndex: -100,
   },
 }));
 
@@ -97,8 +98,7 @@ export function Hero({ handleScroll, contactRef }: Props) {
   const { classes } = useStyles();
 
   return (
-    <Container size="lg" className=" ">
-      <div className={classes.inner}>
+    <Container size="lg" className={`${classes.inner} overflow-y-auto`}>
         <div className={classes.content}>
           <Title className={`${classes.title} lg:whitespace-nowrap  `}>
             High Performance <span className={`${classes.highlight} `}>&</span>{" "}
@@ -159,15 +159,14 @@ export function Hero({ handleScroll, contactRef }: Props) {
           width={200}
           height={500}
           alt="topImage"
-          className={`${classes.image} lg:hidden translate-x-5 overflow-hidden `}
+          className={`${classes.image} lg:hidden  `}
         />
         {/* エラー出てだるいから、最後に反映させる */}
-        <div
+        {/* <div
           className={`${classes.image} hidden lg:inline-flex  absolute left-1/2 top-20 -z-10  w-[700px] h-[550px] `}
         >
           <RiveComponent />
-        </div>
-      </div>
+        </div> */}
     </Container>
   );
 }

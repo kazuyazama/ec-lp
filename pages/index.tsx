@@ -27,7 +27,7 @@ export default function Home({
   featuresRef,
 }: Props) {
   return (
-    <main className=" overflow-x-hidden lg:overflow-x-auto">
+    <main className=" overflow-x-hidden lg:overflow-x-auto ">
       <Hero contactRef={contactRef} handleScroll={handleScroll} />
 
       <Osusume />

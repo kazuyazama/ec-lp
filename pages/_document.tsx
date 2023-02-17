@@ -29,7 +29,7 @@ export default class _Document extends Document {
             rel="stylesheet"
           />
         </Head>
-        <body>
+        <body className="">
           <noscript
             dangerouslySetInnerHTML={{
               __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P4GMW5T"

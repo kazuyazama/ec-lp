@@ -71,7 +71,7 @@ export const Plans = ({plansRef}:Props) => {
     </tr>
   ));
   return (
-    <Container ref={plansRef}  size="lg" className={classes.wrapper}>
+    <Container ref={plansRef}  size="lg" className={`${classes.wrapper}`} >
       <Title className={classes.title}>Plans</Title>
       <Text size="sm" mb={50} className={classes.description}>
         料金プラン
@@ -79,7 +79,7 @@ export const Plans = ({plansRef}:Props) => {
       <SimpleGrid cols={1} spacing="xl">
         <InitialCost initialCostData={initialCostData} />
 
-        <animated.div ref={ref} style={styles}>
+        <animated.div ref={ref} style={styles} className=" overflow-x-hidden">
           <Card w="100%" radius="md" withBorder>
             <Card.Section>
               <Text align="center" size="xl" mt="md">
