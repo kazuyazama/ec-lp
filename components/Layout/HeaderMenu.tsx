@@ -141,13 +141,6 @@ export function HeaderMenu({ links, handleScroll }: HeaderResponsiveProps) {
           {items}
         </Group>
 
-        <Burger
-          opened={opened}
-          onClick={() => setOpened((prev) => !prev)}
-          className={`${classes.burger} z-50`}
-          size="sm"
-        />
-
         {/* <Transition transition="pop-top-right" duration={200} mounted={opened}>
           {(styles) => (
             <Paper className={classes.dropdown} withBorder style={styles}>
@@ -161,12 +154,20 @@ export function HeaderMenu({ links, handleScroll }: HeaderResponsiveProps) {
           title="HydroStore"
           padding="lg"
           size="60%"
+          lockScroll={false}
           overlayOpacity={0.1}
           withCloseButton={false}
         >
           {items}
           {/* Drawer content */}
         </Drawer>
+
+        <Burger
+          opened={opened}
+          onClick={() => setOpened((prev) => !prev)}
+          className={`${classes.burger} z-50`}
+          size="sm"
+        />
       </Container>
     </Header>
   );
